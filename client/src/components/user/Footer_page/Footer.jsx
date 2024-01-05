@@ -10,12 +10,13 @@ import {
   Whatsapp,
   LinkedIn,
   Social,
+  youtube,
 } from "../../../assets/images";
 
 const Footer = () => {
   return (
-    <div className="bg-black">
-      <div className=" h-[400px] flex justify-between pt-8">
+    <div className="bg-black h-[450px] ">
+      <div className="flex justify-between pt-8">
         <div className="">
           <div className="w-[969px]  ">
             <img src={Bromag} alt="bromag" />
@@ -28,27 +29,27 @@ const Footer = () => {
           <br />
           <div className="ml-4 flex justify-evenly w-[300px]">
             <img
-              className=" w-[27px] h-[27px] top-0 left-0 object-cover"
+              className=" w-[32px] h-[32px] top-0 left-0 object-cover"
               alt="Instagram"
               src={Instagram}
             />
             <img
-              className=" w-[27px] h-[27px] top-0 left-0 object-cover"
+              className=" w-[40px] h-[40px] top-0 left-0 object-cover"
               alt="Facebook"
               src={Facebook}
             />
             <img
-              className=" w-[27px] h-[27px] top-0 left-0 object-cover"
+              className=" w-[32px] h-[32px] top-0 left-0 object-cover"
               alt="Whatsapp"
               src={Whatsapp}
             />
             <img
-              className=" w-[27px] h-[27px] top-0 left-0 object-cover"
-              alt="Instagram"
-              src={Instagram}
+              className=" w-[40px] h-[40px] top-0 left-0 object-cover"
+              alt="youtube"
+              src={youtube}
             />
             <img
-              className=" w-[27px] h-[27px] top-0 left-0 object-cover"
+              className=" w-[32px] h-[32px] top-0 left-0 object-cover"
               alt="LinkedIn"
               src={LinkedIn}
             />

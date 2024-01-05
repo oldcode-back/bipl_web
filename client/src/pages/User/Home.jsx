@@ -1,9 +1,9 @@
 import React from 'react';
-import Navbar from '../../components/user/Starting_page.jsx/Navbar';
-import Banner from '../../components/user/Starting_page.jsx/Banner';
-import ChildBanner from '../../components/user/Starting_page.jsx/ChildBanner';
-import Testimonials from '../../components/user/Starting_page.jsx/Testimonials';
-import Footer from '../../components/user/Footer_page.jsx/Footer';
+import Navbar from '../../components/user/Starting_page/Navbar';
+import Banner from '../../components/user/Starting_page/Banner';
+import ChildBanner from '../../components/user/Starting_page/ChildBanner';
+import Testimonials from '../../components/user/Starting_page/Testimonials';
+import Footer from '../../components/user/Footer_page/Footer';
 
 const Home = () => {
   return (

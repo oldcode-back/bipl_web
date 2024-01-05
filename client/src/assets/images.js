@@ -23,7 +23,7 @@ export { default as Bromag } from './bromag.png'
 
 export { default as Facebook } from './facebook.png'
 export { default as Whatsapp } from './whatsapp.png'
-export { default as LinkedIn } from './linkedIn.png'
+export { default as LinkedIn } from './linkedin.png'
 export { default as youtube } from './youtube1.png'
 export { default as Instagram } from './insta.png'
 export { default as Social } from './Social.png'

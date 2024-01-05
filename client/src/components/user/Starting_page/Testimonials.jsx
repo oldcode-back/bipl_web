@@ -25,14 +25,14 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="w-full h-[824px] relative text-center mt-44 mb-14">
+    <div className="w-full h-[824px] relative text-center mt-44 mb-20">
       <p className="text-center font-bold text-[#323232] text-5xl leading-normal pt-5 pb-28">
         Owners Testimonial
       </p>
 
       <div className="flex justify-center items-center h-[550px] relative">
         <img
-          className="w-[1200px] h-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 rounded-xl overflow-hidden cursor-pointer"
+          className="w-[1200px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 rounded-xl overflow-hidden cursor-pointer"
           alt="Ellipse"
           src={Background}
         />

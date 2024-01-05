@@ -1,3 +1,4 @@
+//home
 export { default as RectangleImage } from "./rectangle-45.png";
 export { default as BromagLogo } from "./bromag-logo.png";
 export { default as India } from "./India.png";
@@ -37,6 +38,26 @@ export { default as Ellipse5 } from './Ellipse 5.png'
 export { default as Ellipse6 } from './Ellipse 6.png'
 export { default as Playbtn } from './playbtn.png'
 
+// must visit restaurant
+
+export { default as MustVisit1 } from './mustVisit1.png'
+export { default as Must2 } from './must2.png'  
+export { default as Star } from './star.png'  
+export { default as Upcoming1 } from './upcoming1.png'  
+
+
+//partner restaurant
+export { default as Partners1 } from './partners1.png'
+
+//demo imgs
+export { default as Partners8 } from './image 40.png'
+export { default as restaurant1 } from './image 41.png'
+export { default as restaurant7 } from './image 42.png'
+export { default as restaurant2 } from './image 44.png'
+export { default as restaurant3 } from './image 45.png'
+export { default as restaurant4 } from './image 46.png'
+export { default as restaurant5 } from './image 47.png'
+export { default as restaurant6 } from './image 48.png'
 
 
 

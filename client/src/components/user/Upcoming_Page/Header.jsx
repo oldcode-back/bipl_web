@@ -1,14 +1,9 @@
 import React from "react";
-import {
-  RectangleImage,
-  BromagLogo,
-  India,
-  joinBromag,
-} from "../../../assets/images";
+import { BromagLogo, India, Upcoming1 } from "../../../assets/images";
 import { MdLocationPin, MdArrowDropDown } from "react-icons/md";
 
 
-const Navbar = () => {
+const Header = () => {
   const indianStates = [
     "Andhra Pradesh",
     "Arunachal Pradesh",
@@ -45,32 +40,35 @@ const Navbar = () => {
     "Delhi",
     "Puducherry",
   ];
-
   return (
-    <div className="relative w-full h-[775px]">
-      <img
-        style={{ boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.5)" }}
-        className="w-full h-screen object-cover"
-        alt="Rectangle"
-        src={RectangleImage}
-      />
-
-      <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
+    <div>
+      <div className="relative w-full h-[775px] bg-gray-50">
         <img
-          src={joinBromag}
-          alt="join-logo"
-          className=" w-[750px] h-20 mb-10 mt[-2px]"
+          style={{ boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.5)" }}
+          className="w-full h-[700px]  object-cover"
+          alt="Rectangle"
+          src={Upcoming1}
         />
 
-        <div className="absolute top-0 left-0 w-full h-full z-10">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <img
-                className="w-[102px] h-[91px]"
-                alt="Bromag Logo"
-                src={BromagLogo}
-              />
-              <div className="ml-4 flex items-center">
+        <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
+          <div className="w-full top-0 left-0 space-y-4">
+            <div className="text-center [font-family:'Montserrat-ExtraBold',Helvetica] font-extrabold text-[#eeeeee] text-[80px] tracking-[0] leading-[normal]">
+              Upcoming Restuarants
+            </div>
+            <p className="ml-[360px] [font-family:'Montserrat-Medium',Helvetica] font-medium text-white text-[28px] tracking-[0] leading-[normal]">
+              our upcoming restaurant is set to redefine dining experiences
+            </p>
+          </div>
+
+          <div className="absolute top-0 left-0 w-full h-full z-10">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                <img
+                  className="w-[102px] h-[91px]"
+                  alt="Bromag Logo"
+                  src={BromagLogo}
+                />
+                <div className="ml-4 flex items-center">
                   <div className="relative">
                     <div className="w-[180px] h-[33px] bg-neutral-100 rounded-lg overflow-hidden">
                       <img
@@ -110,11 +108,12 @@ const Navbar = () => {
                     </div>
                   </div>
                 </div>
-            </div>
-            <div className="h-25 font-semibold text-white text-20 space-x-20 mr-32 [font-family:'Montserrat-SemiBold',Helvetica]  text-[20px] tracking-[0] leading-[normal]">
-              <button htmlFor="">Home</button>
-              <button htmlFor="">Who we are</button>
-              <button htmlFor="">Work with us</button>
+              </div>
+              <div className="h-25 font-semibold text-white text-20 space-x-20 mr-32 [font-family:'Montserrat-SemiBold',Helvetica]  text-[20px] tracking-[0] leading-[normal]">
+                <button htmlFor="">Home</button>
+                <button htmlFor="">Who we are</button>
+                <button htmlFor="">Work with us</button>
+              </div>
             </div>
           </div>
         </div>
@@ -123,4 +122,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Header;

@@ -6,9 +6,10 @@ import {
   joinBromag,
 } from "../../../assets/images";
 import { MdLocationPin, MdArrowDropDown } from "react-icons/md";
-
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+ 
   const indianStates = [
     "Andhra Pradesh",
     "Arunachal Pradesh",
@@ -46,6 +47,16 @@ const Navbar = () => {
     "Puducherry",
   ];
 
+  const navigate = useNavigate();
+
+  const handleWhoWeAre = () => {
+    navigate("/who-we-are")
+  };
+
+  const handleWorkWithUs = () => {
+    navigate("/work-with-us")
+  };
+
   return (
     <div className="relative w-full h-[775px]">
       <img
@@ -71,50 +82,50 @@ const Navbar = () => {
                 src={BromagLogo}
               />
               <div className="ml-4 flex items-center">
-                  <div className="relative">
-                    <div className="w-[180px] h-[33px] bg-neutral-100 rounded-lg overflow-hidden">
-                      <img
-                        src={India}
-                        alt="india"
-                        className="w-[17px] h-[13px] absolute top-[50%] transform -translate-y-1/2 left-2"
-                      />
-                      <select
-                        name="state"
-                        id="state"
-                        className="w-full text-center py-1 bg-transparent appearance-none focus:outline-none px-1"
-                      >
-                        <option value="">Select your state</option>
-                        {indianStates.map((state, index) => (
-                          <option key={index} value={state}>
-                            {state}
-                          </option>
-                        ))}
-                      </select>
-                      <MdArrowDropDown className="w-[18px] h-[18px] absolute top-[50%] transform -translate-y-1/2 right-2" />
-                    </div>
-                  </div>
-                  <div className="ml-4 relative">
-                    <div className="w-[170px] h-[33px] bg-neutral-100 rounded-lg overflow-hidden relative">
-                      <MdLocationPin className="w-[20px] h-[18px] absolute top-[50%] transform -translate-y-1/2 left-2" />
-                      <select
-                        name="city"
-                        id="city"
-                        className="w-full text-center py-1 bg-transparent appearance-none focus:outline-none px-1"
-                      >
-                        <option value="">Select your city</option>
-                        <option value="">City 1</option>
-                        <option value="">City 2</option>
-                        <option value="">City 3</option>
-                      </select>
-                      <MdArrowDropDown className="w-[18px] h-[18px] absolute top-[50%] transform -translate-y-1/2 right-2 cursor-pointer" />
-                    </div>
+                <div className="relative">
+                  <div className="w-[180px] h-[33px] bg-neutral-100 rounded-lg overflow-hidden">
+                    <img
+                      src={India}
+                      alt="india"
+                      className="w-[17px] h-[13px] absolute top-[50%] transform -translate-y-1/2 left-2"
+                    />
+                    <select
+                      name="state"
+                      id="state"
+                      className="w-full text-center py-1 bg-transparent appearance-none focus:outline-none px-1"
+                    >
+                      <option value="">Select your state</option>
+                      {indianStates.map((state, index) => (
+                        <option key={index} value={state}>
+                          {state}
+                        </option>
+                      ))}
+                    </select>
+                    <MdArrowDropDown className="w-[18px] h-[18px] absolute top-[50%] transform -translate-y-1/2 right-2" />
                   </div>
                 </div>
+                <div className="ml-4 relative">
+                  <div className="w-[170px] h-[33px] bg-neutral-100 rounded-lg overflow-hidden relative">
+                    <MdLocationPin className="w-[20px] h-[18px] absolute top-[50%] transform -translate-y-1/2 left-2" />
+                    <select
+                      name="city"
+                      id="city"
+                      className="w-full text-center py-1 bg-transparent appearance-none focus:outline-none px-1"
+                    >
+                      <option value="">Select your city</option>
+                      <option value="">City 1</option>
+                      <option value="">City 2</option>
+                      <option value="">City 3</option>
+                    </select>
+                    <MdArrowDropDown className="w-[18px] h-[18px] absolute top-[50%] transform -translate-y-1/2 right-2 cursor-pointer" />
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="h-25 font-semibold text-white text-20 space-x-20 mr-32 [font-family:'Montserrat-SemiBold',Helvetica]  text-[20px] tracking-[0] leading-[normal]">
-              <button htmlFor="">Home</button>
-              <button htmlFor="">Who we are</button>
-              <button htmlFor="">Work with us</button>
+              <button >Home</button>
+              <button onClick={handleWhoWeAre}>Who we are</button>
+              <button onClick={handleWorkWithUs}>Work with us</button>
             </div>
           </div>
         </div>

@@ -59,5 +59,37 @@ export { default as restaurant4 } from './image 46.png'
 export { default as restaurant5 } from './image 47.png'
 export { default as restaurant6 } from './image 48.png'
 
+//who we are
+export { default as WhoWeAre1 } from './whoweare.png'
+export { default as WhoWeAre2 } from './image 14.png'
+export { default as WhoWeAre3 } from './image 15.png'
+export { default as WhoWeAre4 } from './image 16.png'
+
+export { default as ourBlogBg } from './Rectangle 49.png'
+export { default as ourBlog1 } from './Mask group (7).png'
+export { default as ourBlog2 } from './image 22.png'
+export { default as ourBlog3 } from './Mask group (8).png'
+
+
+export { default as Glimpses1 } from './Glimpses1.png'
+export { default as Glimpses2 } from './Glimpses2.png'
+export { default as Glimpses3 } from './Glimpses3.png'
+export { default as Glimpses4 } from './Glimpses4.png'
+export { default as Glimpses5 } from './Glimpses5.png'
+
+//work with us
+export { default as WorkWithUsBanner } from './workWith1.png'
+
+//demo
+export { default as sanjana } from './sanjana.png'
+
+
+//business
+export { default as business1 } from './Mask.png'
+export { default as shade } from './Rectangle 51.png'
+
+
+
+
 
 

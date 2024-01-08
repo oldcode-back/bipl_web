@@ -10,7 +10,7 @@ import {
 import { MdLocationPin, MdArrowDropDown } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 
-const BusinessHeader = () => {
+const BusinessHeader = ({ backgroundImage, heading }) => {
   const indianStates = [
     "Andhra Pradesh",
     "Arunachal Pradesh",
@@ -58,13 +58,17 @@ const BusinessHeader = () => {
     navigate("/work-with-us");
   };
 
+  const handleHomeView = () => {
+    navigate("/");
+  };
+
   return (
     <div className="relative w-full h-[700px]">
       <img
         style={{ boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.5)" }}
         className="w-full h-screen object-cover"
         alt="Rectangle"
-        src={business1}
+        src={backgroundImage}
       />
 
       <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
@@ -118,36 +122,26 @@ const BusinessHeader = () => {
               </div>
             </div>
             <div className="h-25 font-semibold text-white text-20 space-x-20 mr-32 [font-family:'Montserrat-SemiBold',Helvetica]  text-[20px] tracking-[0] leading-[normal]">
-              <button>Home</button>
+              <button onClick={handleHomeView} htmlFor="">
+                Home
+              </button>
+
               <button onClick={handleWhoWeAre}>Who we are</button>
               <button onClick={handleWorkWithUs}>Work with us</button>
             </div>
           </div>
         </div>
-        <div className="w-[851px] h-[97px]">
-          <div className="w-[851px] mt-64 ml-[-266px] left-0 [font-family:'Montserrat-Bold',Helvetica] font-bold text-[#eeeeee] text-[70px] tracking-[0] leading-[normal]">
-            Business Development
+        =
+        <div className="w-full h-[253px] mt-[500px] rounded-lg relative">
+          <img
+            className="h-[243px] w-full object-cover rounded-lg"
+            alt="Rectangle"
+            src={shade}
+          />
+          <div  className="absolute top-1/2 ml-96 transform -translate-x-1/2 -translate-y-1/2 text-white text-6xl font-bold text-center">
+            {heading}
           </div>
-          {/* <div className="w-[1440px] h-[253px]">
-            <img
-              className=" h-[261px] ml-[-350px] top-0 left-0"
-              alt="Rectangle"
-              src={shade}
-            />
-          </div> */}
         </div>
-        {/* <div className="w-[851px] h-[97px]">
-          <div className="w-[851px] mt-64 ml-[-266px] left-0 [font-family:'Montserrat-Bold',Helvetica] font-bold text-[#eeeeee] text-[70px] tracking-[0] leading-[normal]">
-            Business Development
-          </div>
-          <div className="w-[1440px] h-[253px]">
-            <img
-              className=" h-[261px] ml-[-350px] top-0 left-0"
-              alt="Rectangle"
-              src={shade}
-            />
-          </div>
-        </div> */}
       </div>
     </div>
   );

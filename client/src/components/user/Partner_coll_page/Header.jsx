@@ -1,6 +1,7 @@
 import React from "react";
 import { BromagLogo, India, Partners1 } from "../../../assets/images";
 import { MdLocationPin, MdArrowDropDown } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 
 const Header = () => {
@@ -40,6 +41,21 @@ const Header = () => {
     "Delhi",
     "Puducherry",
   ];
+
+  const navigate = useNavigate();
+
+  const handleWhoWeAre = () => {
+    navigate("/who-we-are")
+  };
+
+  const handleWorkWithUs = () => {
+    navigate("/work-with-us")
+  };
+
+  const handleHomeView = () => {
+    navigate("/");
+  };
+
   return (
     <div>
       <div className="relative w-full h-[775px] bg-gray-50">
@@ -55,7 +71,7 @@ const Header = () => {
             <div className="text-center [font-family:'Montserrat-ExtraBold',Helvetica] font-extrabold text-[#eeeeee] text-[80px] tracking-[0] leading-[normal]">
               Partners Restuarants
             </div>
-            <p className="ml-[360px] [font-family:'Montserrat-Medium',Helvetica] font-medium text-white text-[28px] tracking-[0] leading-[normal]">
+            <p className="ml-[290px] [font-family:'Montserrat-Medium',Helvetica] font-medium text-white text-[28px] tracking-[0] leading-[normal]">
               An unforgettable dining experience awaits in the heart of
               locations
             </p>
@@ -111,9 +127,9 @@ const Header = () => {
                 </div>
               </div>
               <div className="h-25 font-semibold text-white text-20 space-x-20 mr-32 [font-family:'Montserrat-SemiBold',Helvetica]  text-[20px] tracking-[0] leading-[normal]">
-                <button htmlFor="">Home</button>
-                <button htmlFor="">Who we are</button>
-                <button htmlFor="">Work with us</button>
+              <button onClick={handleHomeView} htmlFor="">Home</button>
+                <button onClick={handleWhoWeAre}>Who we are</button>
+              <button onClick={handleWorkWithUs}>Work with us</button>
               </div>
             </div>
           </div>

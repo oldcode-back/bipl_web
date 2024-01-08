@@ -1,6 +1,7 @@
 import React from "react";
 import { BromagLogo, India, MustVisit1 } from "../../../assets/images";
 import { MdLocationPin, MdArrowDropDown } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const Banner = () => {
   const indianStates = [
@@ -40,6 +41,20 @@ const Banner = () => {
     "Puducherry",
   ];
 
+  const navigate = useNavigate();
+
+  const handleWhoWeAre = () => {
+    navigate("/who-we-are")
+  };
+
+  const handleWorkWithUs = () => {
+    navigate("/work-with-us")
+  };
+
+  const handleHomeView = () => {
+    navigate("/");
+  };
+
   return (
     <div>
       <div className="relative w-full h-[775px] bg-gray-50">
@@ -55,7 +70,7 @@ const Banner = () => {
             <div className="text-center [font-family:'Montserrat-ExtraBold',Helvetica] font-extrabold text-[#eeeeee] text-[80px] tracking-[0] leading-[normal]">
               Must visit Restuarants
             </div>
-            <p className="ml-[360px] [font-family:'Montserrat-Medium',Helvetica] font-medium text-white text-[28px] tracking-[0] leading-[normal]">
+            <p className="ml-[270px] [font-family:'Montserrat-Medium',Helvetica] font-medium text-white text-[28px] tracking-[0] leading-[normal]">
               must-visit for anyone passionate about great food
             </p>
           </div>
@@ -110,9 +125,9 @@ const Banner = () => {
                 </div>
               </div>
               <div className="h-25 font-semibold text-white text-20 space-x-20 mr-32 [font-family:'Montserrat-SemiBold',Helvetica]  text-[20px] tracking-[0] leading-[normal]">
-                <button htmlFor="">Home</button>
-                <button htmlFor="">Who we are</button>
-                <button htmlFor="">Work with us</button>
+              <button onClick={handleHomeView} htmlFor="">Home</button>
+                <button onClick={handleWhoWeAre}>Who we are</button>
+              <button onClick={handleWorkWithUs}>Work with us</button>
               </div>
             </div>
           </div>

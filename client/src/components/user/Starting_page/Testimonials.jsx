@@ -114,7 +114,7 @@ const Testimonials = () => {
             className=" w-[38px] h-[38px] absolute top-96 left-[1180px] z-10"
             alt="Ellipse"
             src={Ellipse3}
-          />
+          />  
         </div>
       </div>
     </div>

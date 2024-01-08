@@ -80,16 +80,29 @@ export { default as Glimpses5 } from './Glimpses5.png'
 //work with us
 export { default as WorkWithUsBanner } from './workWith1.png'
 
-//demo
-export { default as sanjana } from './sanjana.png'
 
 
 //business
 export { default as business1 } from './Mask.png'
 export { default as shade } from './Rectangle 51.png'
 
+//work with us
+export { default as slideSm } from './slideSm.png'
+export { default as slideLg } from './slideLg.png'
+export { default as vector } from './vector.png'
+export { default as Lookout1 } from './lookout1.png'
+export { default as Lookout2 } from './lookout2.png'
+export { default as Lookout3 } from './lookout3.png'
 
 
 
+//demo
+export { default as sanjana } from './sanjana.png'
+export { default as employee1 } from './employee1.png'
+export { default as employee2 } from './employee2.png'
+export { default as employee3 } from './employee3.png'
+
+
+export { default as playbtn3 } from './playbtn3.png'
 
 

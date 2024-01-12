@@ -10,7 +10,7 @@ import {
 import { MdLocationPin, MdArrowDropDown } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 
-const BusinessHeader = ({ backgroundImage, heading }) => {
+const BusinessHeader = ({ backgroundImage, heading, headingStyle }) => {
   const indianStates = [
     "Andhra Pradesh",
     "Arunachal Pradesh",
@@ -138,7 +138,10 @@ const BusinessHeader = ({ backgroundImage, heading }) => {
             alt="Rectangle"
             src={shade}
           />
-          <div  className="absolute top-1/2 ml-96 transform -translate-x-1/2 -translate-y-1/2 text-white text-6xl font-bold text-center">
+          {/* <div  className="absolute top-1/2 ml-96 transform -translate-x-1/2 -translate-y-1/2 text-white text-6xl font-bold text-center"> */}
+          <div
+            className={`absolute top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-6xl font-bold text-center ${headingStyle}`}
+          >
             {heading}
           </div>
         </div>

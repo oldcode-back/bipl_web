@@ -17,13 +17,18 @@ const User = () => {
         <Route path="/" element={<Home />} />
         <Route path="/must-visit-here" element={<Must_visit_restaurant />} />
         <Route path="/partner-restaurants" element={<Partner_restaurants />} />
-        <Route path="/upcoming-restaurants" element={<Upcoming_restaurants />} />
+        <Route
+          path="/upcoming-restaurants"
+          element={<Upcoming_restaurants />}
+        />
         <Route path="/who-we-are" element={<Who_we_are />} />
         <Route path="/work-with-us" element={<Work_with_us />} />
         <Route path="/business-dev" element={<Business_development />} />
-        <Route path="/order-increase-tips" element={<Increase_orders_guide />} />
+        <Route
+          path="/order-increase-tips"
+          element={<Increase_orders_guide />}
+        />
         <Route path="/bromag-results" element={<Bromag_results />} />
-
       </Routes>
     </>
   );

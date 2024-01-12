@@ -105,4 +105,8 @@ export { default as employee3 } from './employee3.png'
 
 export { default as playbtn3 } from './playbtn3.png'
 
+//bromag results
+export { default as BromagResult } from './bromagResult.png'
 
+//to increase order
+export { default as IncreaseOrder } from './increaseOrder.png'

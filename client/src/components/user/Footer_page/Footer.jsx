@@ -21,6 +21,7 @@ const Footer = () => {
           <div className="w-[969px]  ">
             <img src={Bromag} alt="bromag" />
           </div>
+
           <img
             className=" w-[88px] ml-10 mb-6 h-[23px] top-0 left-0"
             alt="Social"
@@ -28,31 +29,42 @@ const Footer = () => {
           />
           <br />
           <div className="ml-4 flex justify-evenly w-[300px]">
-            <img
+          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+          <img
               className=" w-[32px] h-[32px] top-0 left-0 object-cover"
               alt="Instagram"
               src={Instagram}
             />
+            </a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
             <img
               className=" w-[40px] h-[40px] top-0 left-0 object-cover"
               alt="Facebook"
               src={Facebook}
             />
-            <img
-              className=" w-[32px] h-[32px] top-0 left-0 object-cover"
-              alt="Whatsapp"
-              src={Whatsapp}
-            />
-            <img
-              className=" w-[40px] h-[40px] top-0 left-0 object-cover"
-              alt="youtube"
-              src={youtube}
-            />
-            <img
-              className=" w-[32px] h-[32px] top-0 left-0 object-cover"
-              alt="LinkedIn"
-              src={LinkedIn}
-            />
+            </a>
+           
+            <a href="https://www.whatsapp.com" target="_blank" rel="noopener noreferrer">
+              <img
+                className="w-[32px] h-[32px] top-0 left-0 object-cover"
+                alt="Whatsapp"
+                src={Whatsapp}
+              />
+            </a>
+            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+              <img
+                className="w-[40px] h-[40px] top-0 left-0 object-cover"
+                alt="youtube"
+                src={youtube}
+              />
+            </a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+              <img
+                className="w-[32px] h-[32px] top-0 left-0 object-cover"
+                alt="LinkedIn"
+                src={LinkedIn}
+              />
+            </a>
           </div>
         </div>
         <div className="w-[407px] h-[46px]">
@@ -89,7 +101,7 @@ const Footer = () => {
                 alt="Vector"
                 src={Location}
               />
-              <p>Chennai, Velachery</p>
+              <p>Chennai, Tamilnadu</p>
             </div>
           </div>
         </div>

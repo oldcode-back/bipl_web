@@ -1,16 +1,16 @@
-const Partners = require("../../model/partners_model");
-const PartnersBanner = require("../../model/partners_banner");
+const Upcoming = require("../../model/upcoming_model");
+const UpcomingBanner = require("../../model/upcoming_banner_model");
 
-
-const viewPartnerData = async (req, res) => {
+const viewUpcomingBanners = async (req, res) => {
   try {
     const state = req.query.state;
     const city = req.query.city;
-    const partnersData = await Partners.find({ state, city });
+
+    const upcomingBanners = await UpcomingBanner.find({ state, city });
 
     res.json({
       success: true,
-      PartnersData: partnersData,
+      UpcomingBanners: upcomingBanners,
     });
   } catch (error) {
     res
@@ -19,16 +19,15 @@ const viewPartnerData = async (req, res) => {
   }
 };
 
-const viewPartnersBanners = async (req, res) => {
+const viewUpcomingData = async (req, res) => {
   try {
     const state = req.query.state;
     const city = req.query.city;
-
-    const partnersBanners = await PartnersBanner.find({ state, city });
+    const upcomingData = await Upcoming.find({ state, city });
 
     res.json({
       success: true,
-      PartnersBanners: partnersBanners,
+      UpcomingData: upcomingData,
     });
   } catch (error) {
     res
@@ -36,7 +35,8 @@ const viewPartnersBanners = async (req, res) => {
       .json({ success: false, serverMessage: "Internal Server Error" });
   }
 };
+
 module.exports = {
-  viewPartnerData,
-  viewPartnersBanners
+  viewUpcomingBanners,
+  viewUpcomingData
 };

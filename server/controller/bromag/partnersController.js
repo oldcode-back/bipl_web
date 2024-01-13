@@ -1,5 +1,8 @@
 const Partners = require("../../model/partners_model");
 const helpers = require("../../utils/helpers");
+const PartnersBanner = require("../../model/partners_banner");
+
+const jwtToken = require("jsonwebtoken");
 
 const savePartnerData = async (req, res) => {
   try {
@@ -62,65 +65,6 @@ const viewPartnerData = async (req, res) => {
       .json({ success: false, serverMessage: "Internal Server Error" });
   }
 };
-
-// const updatePartnerData = async (req, res) => {
-//   try {
-//     console.log(req.body, "partner to update");
-//     const { restaurant, location, state, city } = req.body;
-//     const restaurantId = req.params.restaurantId;
-
-//     const Restaurant = await Partners.findOne({ _id: restaurantId });
-
-//     if (Restaurant) {
-//       const OldRestaurantPic = Restaurant.restaurantPic;
-//       await helpers.deleteS3File(OldRestaurantPic);
-
-//       const file = req.files[0];
-//       console.log(file, "file");
-//       const imagePath = `partners/restaurantPic/${restaurant}/${file.filename}`;
-
-//       await helpers.uploadFile(file, imagePath);
-
-//       const imageURL = helpers.getS3FileUrl(imagePath);
-
-//       helpers.deleteFile(file.path);
-
-//       const updatedData = {
-//         restaurant: restaurant,
-//         location: location,
-//         restaurantPic: imageURL,
-//         state: state,
-//         city: city,
-//       };
-
-//       console.log(updatedData,"updated data");
-//       const updatedPartner = await Partners.findOneAndUpdate(
-//         { _id: restaurantId },
-//         { $set: updatedData },
-//         { new: true }
-//       );
-
-//       if (!updatedPartner) {
-//         return res
-//           .status(404)
-//           .json({ success: false, message: "Restaurant not found" });
-//       }
-
-//       res.json({
-//         success: true,
-//         message: `Restaurant's data updated successfully`,
-//         employment: updatedPartner,
-//       });
-//     } else {
-//       res.json({
-//         success: false,
-//         message: "This restaurant is not found!",
-//       });
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
 
 const updatePartnerData = async (req, res) => {
   try {
@@ -208,7 +152,7 @@ const getPartnerToUpdate = async (req, res) => {
 
 const dropPartnersData = async (req, res) => {
   try {
-    const {restaurantId} = req.body;
+    const { restaurantId } = req.body;
     const foundedRestaurant = await Partners.findOneAndDelete({
       _id: restaurantId,
     });
@@ -220,10 +164,98 @@ const dropPartnersData = async (req, res) => {
     console.log(error);
   }
 };
+
+const savePartnersBanner = async (req, res) => {
+  try {
+    console.log(req.body, "partners banner to save");
+    const { state, city, banner } = req.body;
+    // const decoded = jwtToken.verify(token, process.env.COMPANY_SECRET_KEY);
+    // const bromagId = decoded.id;
+    // console.log(bromagId, "bromagId");
+    const isExist = await PartnersBanner.findOne({
+      bannerName: banner,
+    });
+
+    if (!isExist) {
+      const file = req.files[0];
+      console.log(file, "file");
+      const imagePath = `partnersBanner/bannerPic/${banner}/${file.filename}`;
+
+      await helpers.uploadFile(file, imagePath);
+
+      const imageURL = helpers.getS3FileUrl(imagePath);
+
+      helpers.deleteFile(file.path);
+
+      const newBanner = new PartnersBanner({
+        bannerName: banner,
+        bannerPic: imageURL,
+        state: state,
+        city: city,
+      });
+
+      await newBanner.save();
+
+      res.status(200).json({
+        success: true,
+        message: `Banner successfully recorded.`,
+      });
+    } else {
+      res.json({
+        success: false,
+        message: "This banner name is already exist!",
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const viewPartnersBanners = async (req, res) => {
+  try {
+    const state = req.query.state;
+    const city = req.query.city;
+    // const decoded = jwtToken.verify(token, process.env.COMPANY_SECRET_KEY);
+    // const bromagId = decoded.id;
+    // console.log(bromagId, "bromagId");
+    const partnersBanners = await PartnersBanner.find({ state, city });
+
+    res.json({
+      success: true,
+      PartnersBanners: partnersBanners,
+    });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ success: false, serverMessage: "Internal Server Error" });
+  }
+};
+
+const dropPartnersBanners = async (req, res) => {
+  try {
+    const { bannerId } = req.body;
+    // const decoded = jwtToken.verify(token, process.env.COMPANY_SECRET_KEY);
+    // const bromagId = decoded.id;
+    // console.log(bromagId, "bromagId");
+    const foundedRestaurant = await PartnersBanner.findOneAndDelete({
+      _id: bannerId,
+    });
+    res.status(200).json({
+      success: true,
+      message: `${foundedRestaurant.bannerName} is deleted!`,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   savePartnerData,
   viewPartnerData,
   updatePartnerData,
   getPartnerToUpdate,
   dropPartnersData,
+  savePartnersBanner,
+  viewPartnersBanners,
+  dropPartnersBanners,
 };

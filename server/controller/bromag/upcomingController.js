@@ -1,32 +1,31 @@
-const MustVisit = require("../../model/must_visit_model");
-const MustVisitBanner = require("../../model/must_visit_banner");
+const Upcoming = require("../../model/upcoming_model");
+const UpcomingBanner = require("../../model/upcoming_banner_model");
+const jwtToken = require("jsonwebtoken");
 const helpers = require("../../utils/helpers");
 
-const saveMustVisitData = async (req, res) => {
+const saveUpcomingData = async (req, res) => {
   try {
-    console.log(req.body, "body data");
-    const { restaurant, location, rate, state, city, link } = req.body;
-    const isExist = await MustVisit.findOne({
+    console.log(req.body, "partner to save");
+    const { restaurant, location, state, city, link } = req.body;
+    const isExist = await Upcoming.findOne({
       restaurant: restaurant,
     });
 
     if (!isExist) {
       const file = req.files[0];
       console.log(file, "file");
-      const imagePath = `mustVisit/restaurantPic/${restaurant}/${file.filename}`;
+      const imagePath = `upcoming/restaurantPic/${restaurant}/${file.filename}`;
 
       await helpers.uploadFile(file, imagePath);
 
       const imageURL = helpers.getS3FileUrl(imagePath);
 
       helpers.deleteFile(file.path);
-      const roundedRate = parseFloat(rate).toFixed(1);
 
-      const newRestaurant = new MustVisit({
+      const newRestaurant = new Upcoming({
         restaurant: restaurant,
         location: location,
         restaurantPic: imageURL,
-        rate: roundedRate,
         state: state,
         city: city,
         link: link,
@@ -49,19 +48,18 @@ const saveMustVisitData = async (req, res) => {
   }
 };
 
-const viewMustVisitData = async (req, res) => {
+const viewUpcomingData = async (req, res) => {
   try {
     const state = req.query.state;
     const city = req.query.city;
-    console.log(state, "hiy");
     // const decoded = jwtToken.verify(token, process.env.COMPANY_SECRET_KEY);
     // const bromagId = decoded.id;
     // console.log(bromagId, "bromagId");
-    const mustVisit = await MustVisit.find({ state, city });
+    const upcoming = await Upcoming.find({ state, city });
 
     res.json({
       success: true,
-      MustVisit: mustVisit,
+      UpcomingData: upcoming,
     });
   } catch (error) {
     res
@@ -70,21 +68,21 @@ const viewMustVisitData = async (req, res) => {
   }
 };
 
-const saveMustVisitBanner = async (req, res) => {
+const saveUpcomingBanner = async (req, res) => {
   try {
     console.log(req.body, "partners banner to save");
     const { state, city, banner } = req.body;
     // const decoded = jwtToken.verify(token, process.env.COMPANY_SECRET_KEY);
     // const bromagId = decoded.id;
     // console.log(bromagId, "bromagId");
-    const isExist = await MustVisitBanner.findOne({
+    const isExist = await UpcomingBanner.findOne({
       bannerName: banner,
     });
 
     if (!isExist) {
       const file = req.files[0];
       console.log(file, "file");
-      const imagePath = `mustVisitBanner/bannerPic/${banner}/${file.filename}`;
+      const imagePath = `upcomingBanner/bannerPic/${banner}/${file.filename}`;
 
       await helpers.uploadFile(file, imagePath);
 
@@ -92,7 +90,7 @@ const saveMustVisitBanner = async (req, res) => {
 
       helpers.deleteFile(file.path);
 
-      const newBanner = new MustVisitBanner({
+      const newBanner = new UpcomingBanner({
         bannerName: banner,
         bannerPic: imageURL,
         state: state,
@@ -116,18 +114,18 @@ const saveMustVisitBanner = async (req, res) => {
   }
 };
 
-const viewMustVisitBanners = async (req, res) => {
+const viewUpcomingBanners = async (req, res) => {
   try {
     const state = req.query.state;
     const city = req.query.city;
     // const decoded = jwtToken.verify(token, process.env.COMPANY_SECRET_KEY);
     // const bromagId = decoded.id;
     // console.log(bromagId, "bromagId");
-    const mustVisitBanner = await MustVisitBanner.find({ state, city });
+    const upcomingBanners = await UpcomingBanner.find({ state, city });
 
     res.json({
       success: true,
-      MustVisitBanners: mustVisitBanner,
+      UpcomingBanners: upcomingBanners,
     });
   } catch (error) {
     res
@@ -136,13 +134,13 @@ const viewMustVisitBanners = async (req, res) => {
   }
 };
 
-const dropMustVisitBanners = async (req, res) => {
+const dropUpcomingBanners = async (req, res) => {
   try {
     const { bannerId } = req.body;
     // const decoded = jwtToken.verify(token, process.env.COMPANY_SECRET_KEY);
     // const bromagId = decoded.id;
     // console.log(bromagId, "bromagId");
-    const foundedRestaurant = await MustVisitBanner.findOneAndDelete({
+    const foundedRestaurant = await UpcomingBanner.findOneAndDelete({
       _id: bannerId,
     });
     res.status(200).json({
@@ -154,14 +152,13 @@ const dropMustVisitBanners = async (req, res) => {
   }
 };
 
-
-const dropMustVisitData = async (req, res) => {
+const dropUpcomingData = async (req, res) => {
   try {
     const { restaurantId } = req.body;
-     // const decoded = jwtToken.verify(token, process.env.COMPANY_SECRET_KEY);
+    // const decoded = jwtToken.verify(token, process.env.COMPANY_SECRET_KEY);
     // const bromagId = decoded.id;
     // console.log(bromagId, "bromagId");
-    const foundedRestaurant = await MustVisit.findOneAndDelete({
+    const foundedRestaurant = await Upcoming.findOneAndDelete({
       _id: restaurantId,
     });
     res.status(200).json({
@@ -173,10 +170,10 @@ const dropMustVisitData = async (req, res) => {
   }
 };
 module.exports = {
-  saveMustVisitData,
-  viewMustVisitData,
-  saveMustVisitBanner,
-  viewMustVisitBanners,
-  dropMustVisitBanners,
-  dropMustVisitData
+  saveUpcomingData,
+  viewUpcomingData,
+  saveUpcomingBanner,
+  viewUpcomingBanners,
+  dropUpcomingBanners,
+  dropUpcomingData,
 };

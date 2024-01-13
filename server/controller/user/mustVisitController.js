@@ -1,16 +1,17 @@
-const Partners = require("../../model/partners_model");
-const PartnersBanner = require("../../model/partners_banner");
+const MustVisit = require("../../model/must_visit_model");
+const MustVisitBanner = require("../../model/must_visit_banner");
+const helpers = require("../../utils/helpers");
 
-
-const viewPartnerData = async (req, res) => {
+const viewMustVisitBanners = async (req, res) => {
   try {
     const state = req.query.state;
     const city = req.query.city;
-    const partnersData = await Partners.find({ state, city });
+
+    const mustVisitBanners = await MustVisitBanner.find({ state, city });
 
     res.json({
       success: true,
-      PartnersData: partnersData,
+      MustVisitBanners: mustVisitBanners,
     });
   } catch (error) {
     res
@@ -19,16 +20,15 @@ const viewPartnerData = async (req, res) => {
   }
 };
 
-const viewPartnersBanners = async (req, res) => {
+const viewMustVisitData = async (req, res) => {
   try {
     const state = req.query.state;
     const city = req.query.city;
-
-    const partnersBanners = await PartnersBanner.find({ state, city });
+    const mustVisitData = await MustVisit.find({ state, city });
 
     res.json({
       success: true,
-      PartnersBanners: partnersBanners,
+      MustVisitData: mustVisitData,
     });
   } catch (error) {
     res
@@ -36,7 +36,8 @@ const viewPartnersBanners = async (req, res) => {
       .json({ success: false, serverMessage: "Internal Server Error" });
   }
 };
+
 module.exports = {
-  viewPartnerData,
-  viewPartnersBanners
+  viewMustVisitBanners,
+  viewMustVisitData
 };

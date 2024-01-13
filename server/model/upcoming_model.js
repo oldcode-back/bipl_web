@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const mustVisit = mongoose.Schema({
+const upcoming = mongoose.Schema({
   restaurant: {
     type: String,
   },
@@ -9,18 +9,15 @@ const mustVisit = mongoose.Schema({
   restaurantPic: {
     type: String,
   },
-  rate: {
-    type: Number,
-  },
   state: {
-    type: String,
-  },
-  link: {
     type: String,
   },
   city: {
     type: String,
   },
+  link: {
+    type: String,
+  },
 });
 
-module.exports = mongoose.model("MustVisit", mustVisit);
+module.exports = mongoose.model("Upcoming", upcoming);

@@ -13,20 +13,19 @@ import axios from "axios";
 import { BackendAPI } from "../../../config/backendPoint";
 import { useStateAndCity } from "../../../utils/StateAndCityContext";
 
-const Partner_cards = ({ name, image, location, rate, link }) => {
+const Partner_cards = ({ name, image, location, link }) => {
   return (
     <div className="mb-8">
       {" "}
       <div className="w-64 h-48 bg-white rounded-2xl shadow-md">
         <div className="flex justify-center items-center">
-        <a href={link} target="_blank" rel="noopener noreferrer">
-        <img
-            className="w-60 h-32 object-cover rounded-2xl pt-2 "
-            alt="Image"
-            src={image}
-          />
-        </a>
-         
+          <a href={link} target="_blank" rel="noopener noreferrer">
+            <img
+              className="w-60 h-32 object-cover rounded-2xl pt-2 "
+              alt="Image"
+              src={image}
+            />
+          </a>
         </div>
         <div className="px-3 py-2 space-y-1">
           <div className="flex justify-between">
@@ -79,7 +78,6 @@ const CardGrid = () => {
             name={restaurant.restaurant}
             image={restaurant.restaurantPic}
             location={restaurant.location}
-            rate={restaurant.rate}
             link={restaurant.link}
           />
         ))}

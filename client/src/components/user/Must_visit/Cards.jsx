@@ -1,7 +1,20 @@
-import React from "react";
-import { Must2, Star, restaurant1, restaurant2, restaurant3, restaurant4, restaurant5, restaurant6, restaurant7 } from "../../../assets/images";
+import React, { useEffect, useState } from "react";
+import {
+  Must2,
+  Star,
+  restaurant1,
+  restaurant2,
+  restaurant3,
+  restaurant4,
+  restaurant5,
+  restaurant6,
+  restaurant7,
+} from "../../../assets/images";
+import axios from "axios";
+import { BackendAPI } from "../../../config/backendPoint";
+import { useStateAndCity } from "../../../utils/StateAndCityContext";
 
-const Card = ({ name, image, location,rate }) => {
+const Card = ({ name, image, location, rate }) => {
   return (
     <div className="mb-8">
       {" "}
@@ -15,9 +28,10 @@ const Card = ({ name, image, location,rate }) => {
         </div>
         <div className="px-3 py-2 space-y-1">
           <div className="flex justify-between">
-            <div className="font-semibold text-black text-lg mt-[-7px]">{name} </div>
+            <div className="font-semibold text-black text-lg mt-[-7px]">
+              {name}{" "}
+            </div>
             <div className=" flex justify-center text-white w-[35px] h-[17px] top-0 text-xs pl-3 pr-3 pb-1 bt-1 left-0 bg-[#128807] rounded-[5px]">
-
               {rate}
               <img
                 className=" w-[10px] h-[10px] mt-1 ml-1 "
@@ -34,17 +48,45 @@ const Card = ({ name, image, location,rate }) => {
   );
 };
 
-const CardGrid = ({ restaurants }) => {
+const CardGrid = () => {
+  const [MustVisitData, setMustVisitData] = useState([]);
+
+  const { state, city, loading } = useStateAndCity();
+
+  useEffect(() => {
+    const handleMustVisitData = async () => {
+      try {
+        const response = await axios.get(`${BackendAPI}mustVisitData`, {
+          params: {
+            state: state,
+            city: city,
+          },
+        });
+        if (response.data.success) {
+          setMustVisitData(response.data.MustVisitData);
+        } else {
+          console.log(response.data.message);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    if (!loading) {
+      handleMustVisitData();
+    }
+  }, [state, city, loading]);
   return (
     <div className="bg-gray-50 pb-32">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ml-44 mr-32 ">
-        {restaurants.map((restaurant, index) => (
+        {MustVisitData.map((restaurant, index) => (
           <Card
             key={index}
-            name={restaurant.name}
-            image={restaurant.image}
+            name={restaurant.restaurant}
+            image={restaurant.restaurantPic}
             location={restaurant.location}
             rate={restaurant.rate}
+            link={restaurant.link}
           />
         ))}
       </div>
@@ -58,56 +100,48 @@ const YourComponent = () => {
       image: Must2,
       location: "Location 1",
       rate: 4.3,
-
     },
     {
       name: "Restaurant 2",
       image: restaurant1,
       location: "Location 2",
       rate: 5,
-
     },
     {
       name: "Restaurant 3",
       image: restaurant2,
       location: "Location 3",
       rate: 4.5,
-
     },
     {
       name: "Restaurant 4",
       image: restaurant3,
       location: "Location 4",
       rate: 3.6,
-
     },
     {
       name: "Restaurant 5",
       image: restaurant4,
       location: "Location 5",
       rate: 5,
-
     },
     {
       name: "Restaurant 6",
       image: restaurant5,
       location: "Location 6",
       rate: 5,
-
     },
     {
       name: "Restaurant 7",
       image: restaurant6,
       location: "Location 7",
       rate: 4.6,
-
     },
     {
       name: "Restaurant 8",
       image: restaurant7,
       location: "Location 8",
       rate: 4,
-
     },
   ];
 

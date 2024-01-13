@@ -1,5 +1,5 @@
 import React from "react";
-import { WorkWithUsBanner } from "../../../assets/images";
+import { RectangleImage, joinBromag } from "../../../assets/images";
 
 const Header = () => {
   return (
@@ -8,15 +8,15 @@ const Header = () => {
         style={{ boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.5)" }}
         className="w-full h-screen object-cover"
         alt="Rectangle"
-        src={WorkWithUsBanner}
+        src={RectangleImage}
       />
 
       <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
-        <div className="w-[800px] h-[157px]">
-          <p className="ml-[-240px] mb-6 [font-family:'Montserrat-ExtraBold',Helvetica] font-extrabold text-[#ececec] text-[65px] tracking-[0] leading-[normal]">
-            Join Our Team and Shape the Future Together
-          </p>
-        </div>
+        <img
+          src={joinBromag}
+          alt="join-logo"
+          className=" w-[750px] h-20 mb-10 mt[-2px]"
+        />
       </div>
     </div>
   );

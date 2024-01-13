@@ -3,10 +3,12 @@ import BusinessHeader from "../../components/user/Business_dev_page/BusinessHead
 import Footer from "../../components/user/Footer_page/Footer";
 import { BromagResult } from "../../assets/images";
 import WhatWeDo from "../../components/user/Business_dev_page/WhatWeDo";
+import Navbar from "../../components/user/Navbar/Navbar";
 
 const Bromag_results = () => {
   return (
     <>
+      <Navbar />
       <BusinessHeader
         headingStyle="ml-[295px]"
         backgroundImage={BromagResult}

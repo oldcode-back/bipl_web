@@ -5,10 +5,12 @@ import WhatWeDo from "../../components/user/Business_dev_page/WhatWeDo";
 import WhatWeLearnAbout from "../../components/user/Business_dev_page/WhatWeLearnAbout";
 import Challenges from "../../components/user/Business_dev_page/Challenges";
 import { business1 } from "../../assets/images";
+import Navbar from "../../components/user/Navbar/Navbar";
 
 const Business_development = () => {
   return (
     <div>
+      <Navbar/>
       <BusinessHeader
         headingStyle="ml-[395px]"
         backgroundImage={business1}

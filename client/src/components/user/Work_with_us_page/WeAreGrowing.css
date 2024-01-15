@@ -1,7 +1,7 @@
 
 .swiper-button-prev{
     margin-top: 200px;
-    left: 550px !important;
+    left: 680px !important;
     background-image:url("../../../assets//slideLg.png");
     background-size: cover !important;
     width: 69px;
@@ -16,7 +16,7 @@
   
   .swiper-button-next{
     margin-top: 190px;
-    right: 550px !important;
+    right: 480px !important;
     background-image:url("../../../assets//slideSm.png");
     background-size: cover !important;
     padding:  15px !important;

@@ -141,8 +141,8 @@ const WeAreGrowing = () => {
             spaceBetween: 40,
           },
         }}
-        style={{ height: "620px", marginLeft: "250px" }}
-        // style={{ height: "620px", marginLeft: "50px" }}
+        // style={{ height: "620px", marginLeft: "250px" }}
+        style={{ height: "620px", marginLeft: "110px", marginRight:"70px" }}
       >
         {TeamMemberData.map((value, index) => (
           <SwiperSlide key={index} className="grid grid-cols-4 gap-48 ">

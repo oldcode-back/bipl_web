@@ -4,6 +4,8 @@ const userRouter = express.Router();
 const partnerController = require('../controller/user/partnersController');
 const upcomingController = require('../controller/user/upcomingController');
 const mustVisitController = require('../controller/user/mustVisitController');
+const workWithUsController = require('../controller/user/workWithUsController');
+
 
 //partner
 userRouter.get('/partnersData', partnerController.viewPartnerData)
@@ -16,5 +18,8 @@ userRouter.get('/upcomingData', upcomingController.viewUpcomingData)
 //must visit
 userRouter.get('/mustVisitData', mustVisitController.viewMustVisitData)
 userRouter.get('/mustVisitBanners', mustVisitController.viewMustVisitBanners)
+
+// work with us
+userRouter.get('/teamMembersData', workWithUsController.viewTeamMembers)
 
 module.exports = userRouter;

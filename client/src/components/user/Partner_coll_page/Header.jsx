@@ -3,6 +3,7 @@ import { useStateAndCity } from "../../../utils/StateAndCityContext";
 import axios from "axios";
 import { BackendAPI } from "../../../config/backendPoint";
 import { Carousel } from "antd";
+import { Partners1 } from "../../../assets/images";
 
 const Header = () => {
   const [PartnersBanners, setPartnersBanners] = useState([]);
@@ -36,7 +37,7 @@ const Header = () => {
   return (
     <div>
       <div className="relative w-full h-[775px] bg-gray-50">
-        <Carousel autoplay>
+        {/* <Carousel autoplay>
           {PartnersBanners.map((value) => (
             <img
               style={{ boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.5)" }}
@@ -45,6 +46,30 @@ const Header = () => {
               src={value.bannerPic}
             />
           ))}
+        </Carousel> */}
+        <Carousel autoplay>
+          {PartnersBanners && PartnersBanners.length > 0 ? (
+            PartnersBanners.map((value, index) => (
+              <div key={index} className="relative">
+                <div
+                  className={`absolute bottom-0 w-full h-[700px] bg-[#00000080] transition-all duration-300`}
+                ></div>
+                <img
+                  key={index}
+                  className="w-full h-[700px] object-cover "
+                  alt={`Banner ${index + 1}`}
+                  src={value.bannerPic}
+                />
+              </div>
+            ))
+          ) : (
+            <img
+              style={{ boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.5)" }}
+              className="w-full h-[700px]  object-cover"
+              alt="Default Banner"
+              src={Partners1}
+            />
+          )}
         </Carousel>
         <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
           <div className="w-full top-0 left-0 space-y-4">

@@ -6,7 +6,9 @@ const viewUpcomingBanners = async (req, res) => {
     const state = req.query.state;
     const city = req.query.city;
 
-    const upcomingBanners = await UpcomingBanner.find({ state, city });
+    const upcomingBanners = await UpcomingBanner.find({ state, city }).sort({
+      _id: -1,
+    });
 
     res.json({
       success: true,

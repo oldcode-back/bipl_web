@@ -57,7 +57,9 @@ const viewMustVisitData = async (req, res) => {
     // const decoded = jwtToken.verify(token, process.env.COMPANY_SECRET_KEY);
     // const bromagId = decoded.id;
     // console.log(bromagId, "bromagId");
-    const mustVisit = await MustVisit.find({ state, city });
+    const mustVisit = await MustVisit.find({ state, city }).sort({
+      _id: -1,
+    });
 
     res.json({
       success: true,
@@ -123,7 +125,9 @@ const viewMustVisitBanners = async (req, res) => {
     // const decoded = jwtToken.verify(token, process.env.COMPANY_SECRET_KEY);
     // const bromagId = decoded.id;
     // console.log(bromagId, "bromagId");
-    const mustVisitBanner = await MustVisitBanner.find({ state, city });
+    const mustVisitBanner = await MustVisitBanner.find({ state, city }).sort({
+      _id: -1,
+    });
 
     res.json({
       success: true,
@@ -154,11 +158,10 @@ const dropMustVisitBanners = async (req, res) => {
   }
 };
 
-
 const dropMustVisitData = async (req, res) => {
   try {
     const { restaurantId } = req.body;
-     // const decoded = jwtToken.verify(token, process.env.COMPANY_SECRET_KEY);
+    // const decoded = jwtToken.verify(token, process.env.COMPANY_SECRET_KEY);
     // const bromagId = decoded.id;
     // console.log(bromagId, "bromagId");
     const foundedRestaurant = await MustVisit.findOneAndDelete({
@@ -172,11 +175,100 @@ const dropMustVisitData = async (req, res) => {
     console.log(error);
   }
 };
+
+const getMustVisitToUpdate = async (req, res) => {
+  try {
+    const restaurantId = req.params.restaurantId;
+    const RestaurantData = await MustVisit.findOne({
+      _id: restaurantId,
+    });
+
+    if (RestaurantData) {
+      res.json({ success: true, RestaurantData });
+    } else {
+      res.status(404).json({ success: false, message: "Restaurant not found" });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const updateMustVisitData = async (req, res) => {
+  try {
+    const { restaurant, location, state, city, link, rate } = req.body;
+    const restaurantId = req.params.restaurantId;
+    const Restaurant = await MustVisit.findOne({ _id: restaurantId });
+
+    if (!Restaurant) {
+      return res.json({
+        success: false,
+        message: "Restaurant not found",
+      });
+    }
+
+    let imageURL;
+    const file = req.files && req.files[0];
+
+    if (file) {
+      const OldRestaurantPic = Restaurant.restaurantPic;
+      await helpers.deleteS3File(OldRestaurantPic);
+
+      const imagePath = `mustVisit/restaurantPic/${restaurant}/${file.filename}`;
+
+      await helpers.uploadFile(file, imagePath);
+
+      imageURL = helpers.getS3FileUrl(imagePath);
+      helpers.deleteFile(file.path);
+    }
+
+    const updatedData = {
+      ...(imageURL && { restaurantPic: imageURL }),
+      restaurant: restaurant,
+      location: location,
+      state: state,
+      city: city,
+      link: link,
+      rate: rate,
+    };
+
+    console.log(updatedData, "updated data");
+    const updatedPartner = await MustVisit.findOneAndUpdate(
+      { _id: restaurantId },
+      { $set: updatedData },
+      { new: true }
+    );
+
+    if (!updatedPartner) {
+      return res.json({
+        success: false,
+        message: "Restaurant not found",
+      });
+    }
+
+    const messageType = imageURL
+      ? "Restaurant's image updated successfully"
+      : "Restaurant's data updated successfully";
+
+    res.json({
+      success: true,
+      message: messageType,
+      employment: updatedPartner,
+    });
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Internal Server Error",
+    });
+  }
+};
 module.exports = {
   saveMustVisitData,
   viewMustVisitData,
   saveMustVisitBanner,
   viewMustVisitBanners,
   dropMustVisitBanners,
-  dropMustVisitData
+  dropMustVisitData,
+  getMustVisitToUpdate,
+  updateMustVisitData,
 };

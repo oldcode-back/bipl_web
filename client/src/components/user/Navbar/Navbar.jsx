@@ -6,9 +6,7 @@ import { fetchStatesAndCities } from "../../../utils/fetchStateAndCities";
 import { useStateAndCity } from "../../../utils/StateAndCityContext";
 import { isEmpty } from "lodash";
 
-
 const Navbar = () => {
-    
   const [stateName, setStateName] = useState("");
   const [cityName, setCityName] = useState("");
   const [indianStates, setIndianStates] = useState([]);
@@ -88,9 +86,12 @@ const Navbar = () => {
       <div className="flex items-center justify-between">
         <div className="flex items-center">
           <img
-            className="w-[102px] h-[91px]"
+            className="w-[102px] h-[91px] cursor-pointer"
             alt="Bromag Logo"
             src={BromagLogo}
+            onClick={() => {
+              navigate("/");
+            }}
           />
           <div className="ml-4 flex items-center">
             <div className="relative">

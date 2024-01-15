@@ -6,7 +6,9 @@ const viewPartnerData = async (req, res) => {
   try {
     const state = req.query.state;
     const city = req.query.city;
-    const partnersData = await Partners.find({ state, city });
+    const partnersData = await Partners.find({ state, city }).sort({
+      _id: -1,
+    });
 
     res.json({
       success: true,
@@ -24,7 +26,9 @@ const viewPartnersBanners = async (req, res) => {
     const state = req.query.state;
     const city = req.query.city;
 
-    const partnersBanners = await PartnersBanner.find({ state, city });
+    const partnersBanners = await PartnersBanner.find({ state, city }).sort({
+      _id: -1,
+    });
 
     res.json({
       success: true,

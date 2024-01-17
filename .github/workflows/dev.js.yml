@@ -35,6 +35,7 @@ jobs:
           cp /home/ubuntu/env/devser/server/.env /home/ubuntu/devrun/dev/BIPL_WEBSITE/BIPL_WEBSITE/server
           cd server
           npm ci
+          pm2 restart dev
     
   
   

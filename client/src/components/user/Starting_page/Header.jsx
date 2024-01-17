@@ -51,7 +51,7 @@ const Header = () => {
               {/* <div
                 className={`absolute bottom-0 w-full h-[700px] bg-[#00000080] transition-all duration-300`}
               ></div> */}
-              <Link
+              <button
                 key={index}
                 // to={value.link}
                 onClick={() => handleImageClick(value.link)}
@@ -62,7 +62,7 @@ const Header = () => {
                   src={value.bannerPic}
                   className="w-full h-full object-cover"
                 />
-              </Link>
+              </button>
             </div>
           ))
         ) : (

@@ -1,4 +1,6 @@
 const TeamMember = require("../../model/team_model");
+const Lookout = require("../../model/lookout_model");
+
 const helpers = require("../../utils/helpers");
 
 const saveTeamMemberData = async (req, res) => {
@@ -168,10 +170,185 @@ const dropTeamMember = async (req, res) => {
   }
 };
 
+const saveLookoutVdo = async (req, res) => {
+  try {
+    console.log(req.body, "body data lookout");
+    const { description, state, city, lookoutName, CoverPic } = req.body;
+    const isExist = await Lookout.findOne({
+      lookoutName: lookoutName,
+    });
+
+    if (!isExist) {
+      const file = req.files.lookoutVideo[0];
+
+      console.log(file, "file");
+      const videoPath = `lookout/video/${lookoutName}/${file.filename}`;
+
+      await helpers.uploadFile(file, videoPath);
+
+      const videoURL = helpers.getS3FileUrl(videoPath);
+
+      helpers.deleteFile(file.path);
+
+      const newLookout = new Lookout({
+        lookoutName: lookoutName,
+        description: description,
+        coverPic: CoverPic,
+        lookoutVideo: videoURL,
+        state: state,
+        city: city,
+      });
+
+      await newLookout.save();
+
+      res.status(200).json({
+        success: true,
+        message: `New lookout added`,
+      });
+    } else {
+      res.json({
+        success: false,
+        message: "This Lookout name is already exist!",
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const ViewLookoutData = async (req, res) => {
+  try {
+    const state = req.query.state;
+    const city = req.query.city;
+    // const decoded = jwtToken.verify(token, process.env.COMPANY_SECRET_KEY);
+    // const bromagId = decoded.id;
+    // console.log(bromagId, "bromagId");
+    const lookoutData = await Lookout.find({ state, city }).sort({
+      _id: -1,
+    });
+
+    res.json({
+      success: true,
+      LookoutData: lookoutData,
+    });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ success: false, serverMessage: "Internal Server Error" });
+  }
+};
+
+const dropLookoutData = async (req, res) => {
+  try {
+    const { lookoutId } = req.body;
+    console.log(req.body);
+    // const decoded = jwtToken.verify(token, process.env.COMPANY_SECRET_KEY);
+    // const bromagId = decoded.id;
+    // console.log(bromagId, "bromagId");
+    const foundedTeamMember = await Lookout.findOneAndDelete({
+      _id: lookoutId,
+    });
+    res.status(200).json({
+      success: true,
+      message: `${foundedTeamMember.lookoutName} is deleted!`,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const getLookoutToUpdate = async (req, res) => {
+  try {
+    const lookoutId = req.params.lookoutId;
+    const LookoutData = await Lookout.findOne({
+      _id: lookoutId,
+    });
+    if (LookoutData) {
+      res.json({ success: true, LookoutData });
+    } else {
+      res
+        .status(404)
+        .json({ success: false, message: "Lookout video not found" });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const updateLookoutVdo = async (req, res) => {
+  try {
+    const { description, state, city, lookoutName, CoverPic } = req.body;
+
+    const lookoutId = req.params.lookoutId;
+    const Member = await Lookout.findOne({ _id: lookoutId });
+    if (!Member) {
+      return res.json({
+        success: false,
+        message: "Lookout data not found",
+      });
+    }
+
+    let videoURL;
+    const file = req.files.lookoutVideo[0];
+
+    if (file) {
+      const OldLookoutVideo = Member.lookoutVideo;
+      await helpers.deleteS3File(OldLookoutVideo);
+
+      const videoPath = `lookout/video/${lookoutName}/${file.filename}`;
+
+      await helpers.uploadFile(file, videoPath);
+
+      videoURL = helpers.getS3FileUrl(videoPath);
+      helpers.deleteFile(file.path);
+    }
+
+    const updatedData = {
+      ...(videoURL && { lookoutVideo: videoURL }),
+      lookoutName: lookoutName,
+      description: description,
+      coverPic: CoverPic,
+      lookoutVideo: videoURL,
+      state: state,
+      city: city,
+    };
+
+    console.log(updatedData, "updated data");
+    const updatedLookoutData = await Lookout.findOneAndUpdate(
+      { _id: lookoutId },
+      { $set: updatedData },
+      { new: true }
+    );
+
+    if (!updatedLookoutData) {
+      return res.json({
+        success: false,
+        message: "Lookout not found",
+      });
+    }
+
+    res.json({
+      success: true,
+      message: "Lookout data updated successfully",
+    });
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Internal Server Error",
+    });
+  }
+};
+
 module.exports = {
   saveTeamMemberData,
   viewTeamMembers,
   getTeamMemberToUpdate,
   updateTeamMemberData,
   dropTeamMember,
+  saveLookoutVdo,
+  ViewLookoutData,
+  dropLookoutData,
+  getLookoutToUpdate,
+  updateLookoutVdo,
 };

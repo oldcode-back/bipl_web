@@ -2,7 +2,6 @@ const TeamMember = require("../../model/team_model");
 const Lookout = require("../../model/lookout_model");
 const WorkWithUsBanner = require("../../model/work_with_us_banner");
 
-
 const helpers = require("../../utils/helpers");
 
 const saveTeamMemberData = async (req, res) => {
@@ -175,13 +174,13 @@ const dropTeamMember = async (req, res) => {
 const saveLookoutVdo = async (req, res) => {
   try {
     console.log(req.body, "body data lookout");
-    const { description, state, city, lookoutName, CoverPic } = req.body;
+    const { description, state, city, lookoutName } = req.body;
     const isExist = await Lookout.findOne({
       lookoutName: lookoutName,
     });
 
     if (!isExist) {
-      const file = req.files.lookoutVideo[0];
+      const file = req.files[0];
 
       console.log(file, "file");
       const videoPath = `lookout/video/${lookoutName}/${file.filename}`;
@@ -195,7 +194,6 @@ const saveLookoutVdo = async (req, res) => {
       const newLookout = new Lookout({
         lookoutName: lookoutName,
         description: description,
-        coverPic: CoverPic,
         lookoutVideo: videoURL,
         state: state,
         city: city,
@@ -279,8 +277,9 @@ const getLookoutToUpdate = async (req, res) => {
 
 const updateLookoutVdo = async (req, res) => {
   try {
-    const { description, state, city, lookoutName, CoverPic } = req.body;
+    console.log(req.body);
 
+    const { description, state, city, lookoutName } = req.body;
     const lookoutId = req.params.lookoutId;
     const Member = await Lookout.findOne({ _id: lookoutId });
     if (!Member) {
@@ -291,7 +290,7 @@ const updateLookoutVdo = async (req, res) => {
     }
 
     let videoURL;
-    const file = req.files.lookoutVideo[0];
+    const file = req.files[0];
 
     if (file) {
       const OldLookoutVideo = Member.lookoutVideo;
@@ -309,7 +308,6 @@ const updateLookoutVdo = async (req, res) => {
       ...(videoURL && { lookoutVideo: videoURL }),
       lookoutName: lookoutName,
       description: description,
-      coverPic: CoverPic,
       lookoutVideo: videoURL,
       state: state,
       city: city,
@@ -341,8 +339,6 @@ const updateLookoutVdo = async (req, res) => {
     });
   }
 };
-
-
 
 const saveWorkWithUsBanner = async (req, res) => {
   try {
@@ -390,8 +386,6 @@ const saveWorkWithUsBanner = async (req, res) => {
   }
 };
 
-
-
 const viewWorkWithUsBanners = async (req, res) => {
   try {
     const state = req.query.state;
@@ -399,9 +393,11 @@ const viewWorkWithUsBanners = async (req, res) => {
     // const decoded = jwtToken.verify(token, process.env.COMPANY_SECRET_KEY);
     // const bromagId = decoded.id;
     // console.log(bromagId, "bromagId");
-    const workWithUsBanners = await WorkWithUsBanner.find({ state, city }).sort({
-      _id: -1,
-    });
+    const workWithUsBanners = await WorkWithUsBanner.find({ state, city }).sort(
+      {
+        _id: -1,
+      }
+    );
 
     res.json({
       success: true,
@@ -413,7 +409,6 @@ const viewWorkWithUsBanners = async (req, res) => {
       .json({ success: false, serverMessage: "Internal Server Error" });
   }
 };
-
 
 const dropWorkWithUsBanner = async (req, res) => {
   try {
@@ -446,5 +441,5 @@ module.exports = {
   updateLookoutVdo,
   saveWorkWithUsBanner,
   viewWorkWithUsBanners,
-  dropWorkWithUsBanner
+  dropWorkWithUsBanner,
 };

@@ -61,12 +61,22 @@ const LookOut = () => {
       <div className="flex justify-between p-36 mt-[-150px]">
         <>
           <div className="w-[222px] h-[146px] relative">
-            <img
+            {/* <img
               className="absolute mt-80 left-0 transform -translate-y-1/2 object-cover"
               alt="Image"
               onClick={() => openModal(0)}
               src={Lookout2}
-            />
+            /> */}
+            <video
+              className="absolute mt-80 left-0 transform -translate-y-1/2  rounded-3xl"
+              onClick={() => openModal(0)}
+              controls
+              autoPlay
+              controlsList="nodownload"
+            >
+              <source src={LookoutData[0]?.lookoutVideo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
             <img
               className=" absolute mt-80 left-1/2  transform -translate-x-1/2 -translate-y-1/2 w-[61px] h-[61px]"
               alt="Ellipse"
@@ -74,16 +84,26 @@ const LookOut = () => {
               onClick={() => openModal(0)}
               src={playbtn3}
             />
-            {/* <div className="absolute mt-80 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[61px] h-[61px] bg-black rounded-full" /> */}
           </div>
           <div className="h-[398px] relative">
-            <img
+            <video
+              className="w-[721px] h-[401px] top-0 left-0 rounded-3xl"
+              onClick={() => openModal(2)}
+              controls
+              autoPlay
+              controlsList="nodownload"
+            >
+              <source src={LookoutData[2]?.lookoutVideo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+
+            {/* <img
               className="w-[721px] h-[401px] top-0 left-0 object-cover"
               alt="Pexels any lane"
               // onClick={openModal}
               onClick={() => openModal(2)}
               src={Lookout1}
-            />
+            /> */}
             <img
               className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[121px] h-[121px]"
               alt="Ellipse"
@@ -91,8 +111,6 @@ const LookOut = () => {
               onClick={() => openModal(2)}
               src={playbtn3}
             />
-
-            {/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[121px] h-[121px] bg-black rounded-full" /> */}
           </div>
         </>
         {isModalOpen && (
@@ -116,20 +134,28 @@ const LookOut = () => {
           </div>
         )}
         <div className="w-[222px] h-[146px] relative">
-          <img
+          <video
+            className="w-[222px] h-[146px] top-0 left-0 rounded-3xl"
+            onClick={() => openModal(1)}
+            controls
+            autoPlay
+            controlsList="nodownload"
+          >
+            <source src={LookoutData[1]?.lookoutVideo} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          {/* <img
             className="w-[222px] h-[146px] top-0 left-0 object-cover"
             alt="Image"
             src={Lookout3}
             onClick={() => openModal(1)}
-          />
+          /> */}
           <img
             className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[61px] h-[61px]"
             alt="Ellipse"
-            // onClick={openModal}
             onClick={() => openModal(1)}
             src={playbtn3}
           />
-          {/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[61px] h-[61px] bg-black rounded-full" /> */}
         </div>
       </div>
     </div>

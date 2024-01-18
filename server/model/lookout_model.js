@@ -6,9 +6,6 @@ const lookout = mongoose.Schema({
   description: {
     type: String,
   },
-  coverPic: {
-    type: String,
-  },
   lookoutVideo: {
     type: String,
   },

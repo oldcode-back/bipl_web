@@ -144,12 +144,12 @@ const dropUpcomingBanners = async (req, res) => {
     // const decoded = jwtToken.verify(token, process.env.COMPANY_SECRET_KEY);
     // const bromagId = decoded.id;
     // console.log(bromagId, "bromagId");
-    const foundedRestaurant = await UpcomingBanner.findOneAndDelete({
+    const foundedBanner = await UpcomingBanner.findOneAndDelete({
       _id: bannerId,
     });
     res.status(200).json({
       success: true,
-      message: `${foundedRestaurant.bannerName} is deleted!`,
+      message: `${foundedBanner.bannerName} is deleted!`,
     });
   } catch (error) {
     console.log(error);

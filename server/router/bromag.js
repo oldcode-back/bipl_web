@@ -9,6 +9,8 @@ const accessController = require('../controller/bromag/accessController');
 const upcomingController = require('../controller/bromag/upcomingController');
 const workWithUsController = require('../controller/bromag/workWithUsController');
 const homeController = require('../controller/bromag/homeController');
+const whoWeAreController = require('../controller/bromag/whoWeAreController');
+
 
 
 
@@ -61,6 +63,10 @@ bromagRouter.post('/deleteUpcomingBanners', upcomingController.dropUpcomingBanne
 //home banner
 bromagRouter.post('/addHomeBanner',upload.ImageUploader.array('bannerPic', 1), homeController.saveHomeBanner)
 bromagRouter.get('/homeBanners', homeController.viewHomeBanners)
+bromagRouter.post('/deleteHomeBanner', homeController.dropHomeBanner)
+bromagRouter.get('/getHomeBannerToUpdate/:bannerId', homeController.getHomeBannerToUpdate)
+bromagRouter.get('/updateHomeBanner/:bannerId',upload.ImageUploader.array('bannerPic', 1), homeController.updateHomeBannerData)
+
 
 
 // Work with us - Team
@@ -70,24 +76,23 @@ bromagRouter.get('/getTeamMemberToUpdate/:memberId', workWithUsController.getTea
 bromagRouter.put('/updateTeamMember/:memberId',upload.ImageUploader.array('photo', 1), workWithUsController.updateTeamMemberData)
 bromagRouter.post('/deleteTeamMember', workWithUsController.dropTeamMember)
 
-// Lookout videos
-bromagRouter.post(
-    "/addLookoutVdo",
-  
-    upload.VideoUploader.fields([
-      { name: "CoverPic", maxCount: 1 },
-      { name: "lookoutVideo", maxCount: 1 },
-    ]),
-    
-    workWithUsController.saveLookoutVdo
-  );
-  bromagRouter.get("/lookoutData", workWithUsController.ViewLookoutData);
-  
-// bromagRouter.post('/addLookoutVdo',upload.ImageUploader.array('CoverPic', 1),upload.FileUploader.array('lookoutVideo', 1), workWithUsController.saveLookoutVdo)
-// bromagRouter.post('/addLookoutVdo',upload.ImageUploader.array('CoverPic', 1), workWithUsController.saveLookoutVdo)
+// Work with us - Banners
+bromagRouter.post('/addWorkWithUsBanner',upload.ImageUploader.array('bannerPic', 1), workWithUsController.saveWorkWithUsBanner)
+bromagRouter.get('/workWithUsBanners', workWithUsController.viewWorkWithUsBanners)
+bromagRouter.post('/deleteWorkWithUsBanner', workWithUsController.dropWorkWithUsBanner)
+
+
+// Who we are - Banners
+bromagRouter.post('/addWhoWeAreBanner',upload.ImageUploader.array('bannerPic', 1), whoWeAreController.saveWhoWeAreBanner)
+bromagRouter.get('/whoWeAreBanners', whoWeAreController.viewWhoWeAreBanners)
+bromagRouter.post('/deleteWhoWeAreBanner', whoWeAreController.dropWhoWeAreBanner)
+
+// lookout section  
+bromagRouter.post('/addLookoutVdo',upload.VideoUploader.array('lookoutVideo', 1), workWithUsController.saveLookoutVdo)
+bromagRouter.get("/lookoutData", workWithUsController.ViewLookoutData);
 bromagRouter.post('/deleteLookoutData', workWithUsController.dropLookoutData)
 bromagRouter.get('/getLookoutToUpdate/:lookoutId', workWithUsController.getLookoutToUpdate)
-bromagRouter.put('/updateLookout/:lookoutId', upload.VideoUploader.fields([{ name: "CoverPic", maxCount: 1 },{ name: "lookoutVideo", maxCount: 1 },]), workWithUsController.updateLookoutVdo)
+bromagRouter.put('/updateLookout/:lookoutId', upload.VideoUploader.array('lookoutVideo', 1), workWithUsController.updateLookoutVdo)
 
 
 module.exports = bromagRouter;

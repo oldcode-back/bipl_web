@@ -8,7 +8,7 @@ const mustVisitController = require('../controller/bromag/mustVisitController');
 const accessController = require('../controller/bromag/accessController');
 const upcomingController = require('../controller/bromag/upcomingController');
 const workWithUsController = require('../controller/bromag/workWithUsController');
-
+const homeController = require('../controller/bromag/homeController');
 
 
 
@@ -57,12 +57,37 @@ bromagRouter.post('/addUpcomingBanner',upload.ImageUploader.array('bannerPic', 1
 bromagRouter.get('/upcomingBanners', upcomingController.viewUpcomingBanners)
 bromagRouter.post('/deleteUpcomingBanners', upcomingController.dropUpcomingBanners)
 
+
+//home banner
+bromagRouter.post('/addHomeBanner',upload.ImageUploader.array('bannerPic', 1), homeController.saveHomeBanner)
+bromagRouter.get('/homeBanners', homeController.viewHomeBanners)
+
+
 // Work with us - Team
 bromagRouter.post('/addTeamMember',upload.ImageUploader.array('photo', 1), workWithUsController.saveTeamMemberData)
 bromagRouter.get('/teamMembers', workWithUsController.viewTeamMembers)
 bromagRouter.get('/getTeamMemberToUpdate/:memberId', workWithUsController.getTeamMemberToUpdate)
 bromagRouter.put('/updateTeamMember/:memberId',upload.ImageUploader.array('photo', 1), workWithUsController.updateTeamMemberData)
 bromagRouter.post('/deleteTeamMember', workWithUsController.dropTeamMember)
+
+// Lookout videos
+bromagRouter.post(
+    "/addLookoutVdo",
+  
+    upload.VideoUploader.fields([
+      { name: "CoverPic", maxCount: 1 },
+      { name: "lookoutVideo", maxCount: 1 },
+    ]),
+    
+    workWithUsController.saveLookoutVdo
+  );
+  bromagRouter.get("/lookoutData", workWithUsController.ViewLookoutData);
+  
+// bromagRouter.post('/addLookoutVdo',upload.ImageUploader.array('CoverPic', 1),upload.FileUploader.array('lookoutVideo', 1), workWithUsController.saveLookoutVdo)
+// bromagRouter.post('/addLookoutVdo',upload.ImageUploader.array('CoverPic', 1), workWithUsController.saveLookoutVdo)
+bromagRouter.post('/deleteLookoutData', workWithUsController.dropLookoutData)
+bromagRouter.get('/getLookoutToUpdate/:lookoutId', workWithUsController.getLookoutToUpdate)
+bromagRouter.put('/updateLookout/:lookoutId', upload.VideoUploader.fields([{ name: "CoverPic", maxCount: 1 },{ name: "lookoutVideo", maxCount: 1 },]), workWithUsController.updateLookoutVdo)
 
 
 module.exports = bromagRouter;

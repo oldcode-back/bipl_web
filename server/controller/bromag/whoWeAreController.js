@@ -1,21 +1,22 @@
-const HomeBanner = require("../../model/home_banner");
+const WhoWeAreBanner = require("../../model/who_we_are_banner");
 const helpers = require("../../utils/helpers");
 
-const saveHomeBanner = async (req, res) => {
+
+const saveWhoWeAreBanner = async (req, res) => {
   try {
-    console.log(req.body, "home banner to save");
-    const { state, city, restaurant, link } = req.body;
+    console.log(req.body, "who we are banner to save");
+    const { state, city, banner } = req.body;
     // const decoded = jwtToken.verify(token, process.env.COMPANY_SECRET_KEY);
     // const bromagId = decoded.id;
     // console.log(bromagId, "bromagId");
-    const isExist = await HomeBanner.findOne({
-      restaurant: restaurant,
+    const isExist = await WhoWeAreBanner.findOne({
+      bannerName: banner,
     });
 
     if (!isExist) {
       const file = req.files[0];
       console.log(file, "file");
-      const imagePath = `homeBanner/bannerPic/${restaurant}/${file.filename}`;
+      const imagePath = `whoWeAreBanner/bannerPic/${banner}/${file.filename}`;
 
       await helpers.uploadFile(file, imagePath);
 
@@ -23,24 +24,23 @@ const saveHomeBanner = async (req, res) => {
 
       helpers.deleteFile(file.path);
 
-      const newBanner = new HomeBanner({
-        restaurant,
-        link,
+      const newBanner = new WhoWeAreBanner({
+        bannerName: banner,
         bannerPic: imageURL,
-        state,
-        city,
+        state: state,
+        city: city,
       });
 
       await newBanner.save();
 
       res.status(200).json({
         success: true,
-        message: `${restaurant}'s banner successfully uploaded.`,
+        message: `Banner successfully recorded.`,
       });
     } else {
       res.json({
         success: false,
-        message: `${restaurant} restaurant already have a banner! `,
+        message: "This banner name is already exist!",
       });
     }
   } catch (error) {
@@ -48,20 +48,22 @@ const saveHomeBanner = async (req, res) => {
   }
 };
 
-const viewHomeBanners = async (req, res) => {
+
+
+const viewWhoWeAreBanners = async (req, res) => {
   try {
     const state = req.query.state;
     const city = req.query.city;
     // const decoded = jwtToken.verify(token, process.env.COMPANY_SECRET_KEY);
     // const bromagId = decoded.id;
     // console.log(bromagId, "bromagId");
-    const homeBanners = await HomeBanner.find({ state, city }).sort({
+    const whoWeAreBanners = await WhoWeAreBanner.find({ state, city }).sort({
       _id: -1,
     });
 
     res.json({
       success: true,
-      HomeBanners: homeBanners,
+      WhoWeAreBanners: whoWeAreBanners,
     });
   } catch (error) {
     res
@@ -70,13 +72,13 @@ const viewHomeBanners = async (req, res) => {
   }
 };
 
-const dropHomeBanner = async (req, res) => {
+const dropWhoWeAreBanner = async (req, res) => {
   try {
     const { bannerId } = req.body;
     // const decoded = jwtToken.verify(token, process.env.COMPANY_SECRET_KEY);
     // const bromagId = decoded.id;
     // console.log(bromagId, "bromagId");
-    const foundedBanner = await HomeBanner.findOneAndDelete({
+    const foundedBanner = await WhoWeAreBanner.findOneAndDelete({
       _id: bannerId,
     });
     res.status(200).json({
@@ -88,7 +90,7 @@ const dropHomeBanner = async (req, res) => {
   }
 };
 module.exports = {
-  saveHomeBanner,
-  viewHomeBanners,
-  dropHomeBanner
+  saveWhoWeAreBanner,
+  viewWhoWeAreBanners,
+  dropWhoWeAreBanner
 };

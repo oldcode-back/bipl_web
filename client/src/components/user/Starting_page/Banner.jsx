@@ -2,6 +2,8 @@ import React from "react";
 import { Dining, OrderCall, Online, Takeaway } from "../../../assets/images";
 
 const Banner = () => {
+  
+  
   return (
     <div
       className="w-full flex justify-center items-center space-x-5 relative mb-28"

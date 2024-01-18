@@ -30,7 +30,7 @@ const ChildBanner = () => {
             <img className="w-full object-cover" alt="Image" src={coll3} />
             <div className="absolute w-[300px] rounded-2xl  h-[360px] bottom-[-4px] left-0 rounded-[0px 0px 21px 20px] shadow-[0px 4px 4px #00000040] [background:linear-gradient(180deg,rgba(0,0,0,0)_45.94%,rgb(0,0,0)_100%)]" />
             <div className="absolute bottom-3 left-3 text-white font-semibold text-[22px] tracking-[0] leading-[normal]">
-              Must visit <br /> Restaurants
+              Must Visit <br /> Restaurants
             </div>
           </div>
           {/* </Link> */}

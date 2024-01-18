@@ -1,5 +1,7 @@
 const TeamMember = require("../../model/team_model");
 const Lookout = require("../../model/lookout_model");
+const WorkWithUsBanner = require("../../model/work_with_us_banner");
+
 
 const helpers = require("../../utils/helpers");
 
@@ -340,6 +342,97 @@ const updateLookoutVdo = async (req, res) => {
   }
 };
 
+
+
+const saveWorkWithUsBanner = async (req, res) => {
+  try {
+    console.log(req.body, "work with us banner to save");
+    const { state, city, banner } = req.body;
+    // const decoded = jwtToken.verify(token, process.env.COMPANY_SECRET_KEY);
+    // const bromagId = decoded.id;
+    // console.log(bromagId, "bromagId");
+    const isExist = await WorkWithUsBanner.findOne({
+      bannerName: banner,
+    });
+
+    if (!isExist) {
+      const file = req.files[0];
+      console.log(file, "file");
+      const imagePath = `workWithUsBanner/bannerPic/${banner}/${file.filename}`;
+
+      await helpers.uploadFile(file, imagePath);
+
+      const imageURL = helpers.getS3FileUrl(imagePath);
+
+      helpers.deleteFile(file.path);
+
+      const newBanner = new WorkWithUsBanner({
+        bannerName: banner,
+        bannerPic: imageURL,
+        state: state,
+        city: city,
+      });
+
+      await newBanner.save();
+
+      res.status(200).json({
+        success: true,
+        message: `Banner successfully recorded.`,
+      });
+    } else {
+      res.json({
+        success: false,
+        message: "This banner name is already exist!",
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+
+const viewWorkWithUsBanners = async (req, res) => {
+  try {
+    const state = req.query.state;
+    const city = req.query.city;
+    // const decoded = jwtToken.verify(token, process.env.COMPANY_SECRET_KEY);
+    // const bromagId = decoded.id;
+    // console.log(bromagId, "bromagId");
+    const workWithUsBanners = await WorkWithUsBanner.find({ state, city }).sort({
+      _id: -1,
+    });
+
+    res.json({
+      success: true,
+      WorkWithUsBanners: workWithUsBanners,
+    });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ success: false, serverMessage: "Internal Server Error" });
+  }
+};
+
+
+const dropWorkWithUsBanner = async (req, res) => {
+  try {
+    const { bannerId } = req.body;
+    // const decoded = jwtToken.verify(token, process.env.COMPANY_SECRET_KEY);
+    // const bromagId = decoded.id;
+    // console.log(bromagId, "bromagId");
+    const foundedBanner = await WorkWithUsBanner.findOneAndDelete({
+      _id: bannerId,
+    });
+    res.status(200).json({
+      success: true,
+      message: `${foundedBanner.bannerName} is deleted!`,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   saveTeamMemberData,
   viewTeamMembers,
@@ -351,4 +444,7 @@ module.exports = {
   dropLookoutData,
   getLookoutToUpdate,
   updateLookoutVdo,
+  saveWorkWithUsBanner,
+  viewWorkWithUsBanners,
+  dropWorkWithUsBanner
 };

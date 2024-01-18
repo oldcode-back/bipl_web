@@ -9,6 +9,8 @@ const accessController = require('../controller/bromag/accessController');
 const upcomingController = require('../controller/bromag/upcomingController');
 const workWithUsController = require('../controller/bromag/workWithUsController');
 const homeController = require('../controller/bromag/homeController');
+const whoWeAreController = require('../controller/bromag/whoWeAreController');
+
 
 
 
@@ -61,6 +63,7 @@ bromagRouter.post('/deleteUpcomingBanners', upcomingController.dropUpcomingBanne
 //home banner
 bromagRouter.post('/addHomeBanner',upload.ImageUploader.array('bannerPic', 1), homeController.saveHomeBanner)
 bromagRouter.get('/homeBanners', homeController.viewHomeBanners)
+bromagRouter.post('/deleteHomeBanner', homeController.dropHomeBanner)
 
 
 // Work with us - Team
@@ -69,6 +72,18 @@ bromagRouter.get('/teamMembers', workWithUsController.viewTeamMembers)
 bromagRouter.get('/getTeamMemberToUpdate/:memberId', workWithUsController.getTeamMemberToUpdate)
 bromagRouter.put('/updateTeamMember/:memberId',upload.ImageUploader.array('photo', 1), workWithUsController.updateTeamMemberData)
 bromagRouter.post('/deleteTeamMember', workWithUsController.dropTeamMember)
+
+// Work with us - Banners
+bromagRouter.post('/addWorkWithUsBanner',upload.ImageUploader.array('bannerPic', 1), workWithUsController.saveWorkWithUsBanner)
+bromagRouter.get('/workWithUsBanners', workWithUsController.viewWorkWithUsBanners)
+bromagRouter.post('/deleteWorkWithUsBanner', workWithUsController.dropWorkWithUsBanner)
+
+
+// Who we are - Banners
+bromagRouter.post('/addWhoWeAreBanner',upload.ImageUploader.array('bannerPic', 1), whoWeAreController.saveWhoWeAreBanner)
+bromagRouter.get('/whoWeAreBanners', whoWeAreController.viewWhoWeAreBanners)
+bromagRouter.post('/deleteWhoWeAreBanner', whoWeAreController.dropWhoWeAreBanner)
+
 
 // Lookout videos
 bromagRouter.post(

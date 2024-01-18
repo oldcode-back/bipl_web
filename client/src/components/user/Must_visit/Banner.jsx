@@ -35,17 +35,17 @@ const Banner = () => {
   }, [state, city, loading]);
   return (
     <div>
-      <div className="relative w-full h-[775px] bg-gray-50">
+      <div className="relative w-full h-[775px] mb-[75px] bg-gray-50">
         <Carousel autoplay>
           {MustVisitBanners && MustVisitBanners.length > 0 ? (
             MustVisitBanners.map((value, index) => (
               <div key={index} className="relative">
                 <div
-                  className={`absolute bottom-0 w-full h-[700px] bg-[#00000080] transition-all duration-300`}
+                  className={`absolute bottom-0 w-full h-[775px] bg-[#00000080] transition-all duration-300`}
                 ></div>
                 <img
                   key={index}
-                  className="w-full h-[700px] object-cover "
+                  className="w-full h-[775px] object-cover "
                   alt={`Banner ${index + 1}`}
                   src={value.bannerPic}
                 />
@@ -61,7 +61,7 @@ const Banner = () => {
           )}
         </Carousel>
 
-        <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
+        {/* <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
           <div className="w-full top-0 left-0 space-y-4">
             <div className="text-center [font-family:'Montserrat-ExtraBold',Helvetica] font-extrabold text-[#eeeeee] text-[80px] tracking-[0] leading-[normal]">
               Must visit Restuarants
@@ -70,7 +70,7 @@ const Banner = () => {
               must-visit for anyone passionate about great food
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

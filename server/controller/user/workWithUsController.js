@@ -1,5 +1,7 @@
 const TeamMember = require("../../model/team_model");
 const Lookout = require("../../model/lookout_model");
+const WorkWithUsBanner = require("../../model/work_with_us_banner");
+
 
 const viewTeamMembers = async (req, res) => {
   try {
@@ -40,7 +42,27 @@ const viewLookout = async (req, res) => {
       .json({ success: false, serverMessage: "Internal Server Error" });
   }
 };
+
+const viewWorkWithUsBanners = async (req, res) => {
+  try {
+    const state = req.query.state;
+    const city = req.query.city;
+    const workWithUsBanners = await WorkWithUsBanner.find({ state, city }).sort({
+      _id: -1,
+    });
+
+    res.json({
+      success: true,
+      WorkWithUsBanners: workWithUsBanners,
+    });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ success: false, serverMessage: "Internal Server Error" });
+  }
+};
 module.exports = {
   viewTeamMembers,
   viewLookout,
+  viewWorkWithUsBanners
 };

@@ -1,12 +1,9 @@
 const mongoose = require("mongoose");
-const lookout = mongoose.Schema({
-  lookoutName: {
+const whoWeAreBanner = mongoose.Schema({
+  bannerName: {
     type: String,
   },
-  description: {
-    type: String,
-  },
-  lookoutVideo: {
+  bannerPic: {
     type: String,
   },
   state: {
@@ -17,4 +14,4 @@ const lookout = mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Lookout", lookout);
+module.exports = mongoose.model("WhoWeAreBanner", whoWeAreBanner);

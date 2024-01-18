@@ -6,7 +6,7 @@ import { BackendAPI } from "../../../config/backendPoint";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ handleChange }) => {
   const [HomeBanners, setHomeBanners] = useState([]);
 
   const navigate = useNavigate();
@@ -39,28 +39,31 @@ const Header = () => {
 
   const handleImageClick = (link) => {
     console.log("Image clicked:", link);
-    window.open(link, "_blank");
+    handleChange(link);
   };
 
   return (
-    <div className="relative w-full h-[775px]">
-      <Carousel autoplay>
+    <div className="relative w-full h-[775px] mb-[75px]">
+      <Carousel
+        autoplay
+        afterChange={(currentSlide) =>
+          handleImageClick(HomeBanners[currentSlide].link)
+        }
+      >
         {HomeBanners && HomeBanners.length > 0 ? (
           HomeBanners.map((value, index) => (
             <div key={index} className="relative">
-              {/* <div
-                className={`absolute bottom-0 w-full h-[700px] bg-[#00000080] transition-all duration-300`}
-              ></div> */}
+              <div
+                className={`absolute mb-2 bottom-0 w-full h-[774px] bg-[#00000080] transition-all duration-300`}
+              ></div>
               <button
-                key={index}
-                // to={value.link}
                 onClick={() => handleImageClick(value.link)}
-                className="w-full h-[700px] z-50 bg-red-800 object-cover cursor-pointer"
+                className="w-full h-[775px] z-50 bg-red-800 object-cover"
               >
                 <img
                   alt={`Banner ${index + 1}`}
                   src={value.bannerPic}
-                  className="w-full h-full object-cover"
+                  className="w-full h-[775px] object-cover"
                 />
               </button>
             </div>

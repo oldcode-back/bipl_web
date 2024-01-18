@@ -6,6 +6,8 @@ const upcomingController = require('../controller/user/upcomingController');
 const mustVisitController = require('../controller/user/mustVisitController');
 const workWithUsController = require('../controller/user/workWithUsController');
 const homeController = require('../controller/user/homeController');
+const whoWeAreController = require('../controller/user/whoWeAreController');
+
 
 
 //partner
@@ -26,5 +28,13 @@ userRouter.get('/lookoutData', workWithUsController.viewLookout)
 
 // home banner
 userRouter.get('/homeBanners', homeController.viewHomeBanners)
+
+// who we are banners
+userRouter.get('/whoWeAreBanners', whoWeAreController.viewWhoWeAreBanners)
+
+
+userRouter.get('/workWithUsBanners', workWithUsController.viewWorkWithUsBanners)
+
+
 
 module.exports = userRouter;

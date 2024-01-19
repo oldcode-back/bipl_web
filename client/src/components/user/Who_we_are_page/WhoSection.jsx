@@ -4,7 +4,7 @@ import {
   WhoWeAre3,
   WhoWeAre2,
   WhoWeAreCard1,
-  WhoWeAreCard2,
+  Abrar,
   WhoWeAreCard3,
   WhoWeAreCard4,
 } from "../../../assets/images";
@@ -53,7 +53,7 @@ const WhoSection = () => {
             <img
               className=" w-[277px] h-[282px]  object-cover"
               alt="Image"
-              src={WhoWeAreCard2}
+              src={Abrar}
             />
           </div>
           <div className="flex flex-col w-[800px] mt-4">

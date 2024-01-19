@@ -65,10 +65,17 @@ export { default as WhoWeAre2 } from './image 14.png'
 export { default as WhoWeAre3 } from './image 15.png'
 export { default as WhoWeAre4 } from './image 16.png'
 
+export { default as WhoWeAreCard1 } from './Whoweare1.png'
+export { default as WhoWeAreCard2 } from './Whoweare2.png'
+export { default as WhoWeAreCard3 } from './Whoweare3.png'
+export { default as WhoWeAreCard4 } from './Whoweare4.png'
+
+
+
 export { default as ourBlogBg } from './Rectangle 49.png'
-export { default as ourBlog1 } from './Mask group (7).png'
-export { default as ourBlog2 } from './image 22.png'
-export { default as ourBlog3 } from './Mask group (8).png'
+export { default as ourBlog1 } from './ourBlog1.png'
+export { default as ourBlog2 } from './ourBlog2.png'
+export { default as ourBlog3 } from './ourBlog3.png'
 
 
 export { default as Glimpses1 } from './Glimpses1.png'
@@ -83,7 +90,7 @@ export { default as WorkWithUsBanner } from './workWith1.png'
 
 
 //business
-export { default as business1 } from './Mask.png'
+export { default as business1 } from './WhatwedoBanner.png'
 export { default as shade } from './Rectangle 51.png'
 
 //work with us
@@ -106,10 +113,10 @@ export { default as employee3 } from './employee3.png'
 export { default as playbtn3 } from './playbtn3.png'
 
 //bromag results
-export { default as BromagResult } from './bromagResult.png'
+export { default as BromagResult } from './RestaurantBenefitsBanner.png'
 
 //to increase order
-export { default as IncreaseOrder } from './increaseOrder.png'
+export { default as IncreaseOrder } from './CustomerBenefitsBanner.png'
 
 
 //home demo

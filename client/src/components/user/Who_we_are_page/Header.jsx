@@ -38,7 +38,7 @@ const Header = () => {
   }, [state, city, loading]);
   return (
     <div>
-      <div className="relative w-full h-[775px] mb-[75px] bg-white">
+      <div className="relative w-full h-[775px] bg-white">
       <Carousel autoplay>
           {WhoWeAreBanners && WhoWeAreBanners.length > 0 ? (
             WhoWeAreBanners.map((value, index) => (

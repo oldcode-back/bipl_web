@@ -21,44 +21,68 @@ const Footer = () => {
           <div className="w-[969px]  ">
             <img src={Bromag} alt="bromag" />
           </div>
-
-          <img
+          <h3 className="w-[208px] text-3xl font-medium text-gray-200 ml-10 mb-6 h-[23px] top-0 left-0 opacity-40">
+            Social Links
+          </h3>
+          {/* 
+          <img  
             className=" w-[88px] ml-10 mb-6 h-[23px] top-0 left-0"
             alt="Social"
             src={Social}
-          />
+          /> */}
           <br />
           <div className="ml-4 flex justify-evenly w-[300px]">
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-          <img
-              className=" w-[32px] h-[32px] top-0 left-0 object-cover"
-              alt="Instagram"
-              src={Instagram}
-            />
+            <a
+              href="https://www.instagram.com/bromagweb?utm_source=qr&igsh=MTRubjd2cWw0bHpqdw=="
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                className=" w-[32px] h-[32px] top-0 left-0 object-cover"
+                alt="Instagram"
+                src={Instagram}
+              />
             </a>
-            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-            <img
-              className=" w-[40px] h-[40px] top-0 left-0 object-cover"
-              alt="Facebook"
-              src={Facebook}
-            />
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                className=" w-[40px] h-[40px] top-0 left-0 object-cover"
+                alt="Facebook"
+                src={Facebook}
+              />
             </a>
-           
-            <a href="https://www.whatsapp.com" target="_blank" rel="noopener noreferrer">
+
+            <a
+              href="https://wa.me/916382056505"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img
                 className="w-[32px] h-[32px] top-0 left-0 object-cover"
                 alt="Whatsapp"
                 src={Whatsapp}
               />
             </a>
-            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+
+            <a
+              href="https://www.youtube.com/@BROMAGINDIA"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img
                 className="w-[40px] h-[40px] top-0 left-0 object-cover"
                 alt="youtube"
                 src={youtube}
               />
             </a>
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.linkedin.com/company/bromagindia/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img
                 className="w-[32px] h-[32px] top-0 left-0 object-cover"
                 alt="LinkedIn"

@@ -12,7 +12,6 @@ const BusinessHeader = ({ backgroundImage, heading, headingStyle }) => {
       />
 
       <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
-        =
         <div className="w-full h-[253px] mt-[500px] rounded-lg relative">
           <img
             className="h-[243px] w-full object-cover rounded-lg"

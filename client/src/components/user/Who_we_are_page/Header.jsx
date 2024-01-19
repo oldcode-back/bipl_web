@@ -38,8 +38,32 @@ const Header = () => {
   }, [state, city, loading]);
   return (
     <div>
-      <div className="relative w-full h-[775px] mb-[75px] bg-white">
-        <Carousel autoplay>
+      <div className="relative w-full h-[775px] bg-white">
+      <Carousel autoplay>
+          {WhoWeAreBanners && WhoWeAreBanners.length > 0 ? (
+            WhoWeAreBanners.map((value, index) => (
+              <div key={index} className="relative">
+                <div
+                  className={`absolute bottom-0 w-[1550px] h-[790px] bg-[#00000080] transition-all duration-300`}
+                ></div>
+                <img
+                  key={index}
+                  className="w-full "
+                  alt={`Banner ${index + 1}`}
+                  src={value.bannerPic}
+                />
+              </div>
+            ))
+          ) : (
+            <img
+              style={{ boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.5)" }}
+              className="w-full"
+              alt="Default Banner"
+              src={WhoWeAre1}
+            />
+          )}
+        </Carousel>
+        {/* <Carousel autoplay>
           {WhoWeAreBanners && WhoWeAreBanners.length > 0 ? (
             WhoWeAreBanners.map((value, index) => (
               <div key={index} className="relative">
@@ -62,7 +86,7 @@ const Header = () => {
               src={WhoWeAre1}
             />
           )}
-        </Carousel>
+        </Carousel> */}
         {/* <img
           style={{ boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.5)" }}
           className="w-full h-[700px]  object-cover"

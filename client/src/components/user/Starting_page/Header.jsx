@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { RectangleImage, joinBromag } from "../../../assets/images";
+import { RectangleImage, homedemo, joinBromag } from "../../../assets/images";
 import { Carousel } from "antd";
 import { useStateAndCity } from "../../../utils/StateAndCityContext";
 import { BackendAPI } from "../../../config/backendPoint";
@@ -43,27 +43,31 @@ const Header = ({ handleChange }) => {
   };
 
   return (
-    <div className="relative w-full h-[775px] mb-[75px]">
+    <div className="relative w-full h-[790px] mb-24">
       <Carousel
         autoplay
-        afterChange={(currentSlide) =>
-          handleImageClick(HomeBanners[currentSlide].link)
-        }
+        afterChange={(currentSlide) => {
+          const link = HomeBanners[currentSlide]?.link;
+          if (link) {
+            handleImageClick(link);
+          }
+        }}
       >
         {HomeBanners && HomeBanners.length > 0 ? (
           HomeBanners.map((value, index) => (
             <div key={index} className="relative">
               <div
-                className={`absolute mb-2 bottom-0 w-full h-[774px] bg-[#00000080] transition-all duration-300`}
+                className={`absolute mb-2 bottom-0 w-[1550px] h-[790px] bg-[#00000080] transition-all duration-300`}
               ></div>
               <button
                 onClick={() => handleImageClick(value.link)}
-                className="w-full h-[775px] z-50 bg-red-800 object-cover"
+                className="w-full  bg-red-800 "
               >
                 <img
                   alt={`Banner ${index + 1}`}
                   src={value.bannerPic}
-                  className="w-full h-[775px] object-cover"
+                  className="w-full "
+                  // w-[1550px] h-[790px]
                 />
               </button>
             </div>
@@ -71,9 +75,10 @@ const Header = ({ handleChange }) => {
         ) : (
           <img
             style={{ boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.5)" }}
-            className="w-full h-[700px]  object-cover"
+            className="w-[1550px] h-[790px]  object-cover"
             alt="Default Banner"
-            src={RectangleImage}
+            // src={RectangleImage}
+            src={homedemo}
           />
         )}
       </Carousel>

@@ -22,7 +22,7 @@ const Glimpses = () => {
         </div>
         {/* first phase */}
 
-        {/* <>
+        <>
           <div className="w-[480px] h-[450px] absolute mt-[-86px] ">
             <img
               className="w-full h-full object-cover rounded-2xl border-2 "
@@ -67,9 +67,9 @@ const Glimpses = () => {
               </div>
             </div>
           </div>
-        </> */}
+        </>
         {/* second phase */}
-        <>
+        {/* <>
           <div
             className="w-[490px] h-[450px] absolute mt-[-86px] rounded-3xl "
             onMouseEnter={handleHover}
@@ -157,7 +157,7 @@ const Glimpses = () => {
               </div>
             )}
           </div>
-        </>
+        </> */}
       </div>
     </div>
   );

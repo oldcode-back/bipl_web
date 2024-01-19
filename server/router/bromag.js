@@ -29,6 +29,8 @@ bromagRouter.post('/deletePartnersData', partnerController.dropPartnersData)
 bromagRouter.post('/addPartnersBanner',upload.ImageUploader.array('bannerPic', 1), partnerController.savePartnersBanner)
 bromagRouter.get('/partnersBanners', partnerController.viewPartnersBanners)
 bromagRouter.post('/deletePartnersBanners', partnerController.dropPartnersBanners)
+bromagRouter.get('/getPartnerBannerToUpdate/:bannerId', partnerController.getPartnerBannerToUpdate)
+bromagRouter.put('/updatePartnerBanner/:bannerId',upload.ImageUploader.array('bannerPic', 1), partnerController.updatePartnerBannerData)
 
 
 // must visit restaurant
@@ -43,7 +45,8 @@ bromagRouter.put('/updateMustVisit/:restaurantId',upload.ImageUploader.array('re
 bromagRouter.post('/addMustVisitBanner',upload.ImageUploader.array('bannerPic', 1), mustVisitController.saveMustVisitBanner)
 bromagRouter.get('/mustVisitBanners', mustVisitController.viewMustVisitBanners)
 bromagRouter.post('/deleteMustVisitBanners', mustVisitController.dropMustVisitBanners)
-
+bromagRouter.get('/getMustVisitBannerToUpdate/:bannerId', mustVisitController.getMustVisitBannerToUpdate)
+bromagRouter.put('/updateMustVisitBanner/:bannerId',upload.ImageUploader.array('bannerPic', 1), mustVisitController.updateMustVisitBannerData)
 
 
 // upcoming restaurant
@@ -58,6 +61,8 @@ bromagRouter.put('/updateUpcoming/:restaurantId',upload.ImageUploader.array('res
 bromagRouter.post('/addUpcomingBanner',upload.ImageUploader.array('bannerPic', 1), upcomingController.saveUpcomingBanner)
 bromagRouter.get('/upcomingBanners', upcomingController.viewUpcomingBanners)
 bromagRouter.post('/deleteUpcomingBanners', upcomingController.dropUpcomingBanners)
+bromagRouter.get('/getUpcomingBannerToUpdate/:bannerId', upcomingController.getUpcomingBannerToUpdate)
+bromagRouter.put('/updateUpcomingBanner/:bannerId',upload.ImageUploader.array('bannerPic', 1), upcomingController.updateUpcomingBannerData)
 
 
 //home banner
@@ -65,7 +70,7 @@ bromagRouter.post('/addHomeBanner',upload.ImageUploader.array('bannerPic', 1), h
 bromagRouter.get('/homeBanners', homeController.viewHomeBanners)
 bromagRouter.post('/deleteHomeBanner', homeController.dropHomeBanner)
 bromagRouter.get('/getHomeBannerToUpdate/:bannerId', homeController.getHomeBannerToUpdate)
-bromagRouter.get('/updateHomeBanner/:bannerId',upload.ImageUploader.array('bannerPic', 1), homeController.updateHomeBannerData)
+bromagRouter.put('/updateHomeBanner/:bannerId',upload.ImageUploader.array('bannerPic', 1), homeController.updateHomeBannerData)
 
 
 
@@ -80,12 +85,17 @@ bromagRouter.post('/deleteTeamMember', workWithUsController.dropTeamMember)
 bromagRouter.post('/addWorkWithUsBanner',upload.ImageUploader.array('bannerPic', 1), workWithUsController.saveWorkWithUsBanner)
 bromagRouter.get('/workWithUsBanners', workWithUsController.viewWorkWithUsBanners)
 bromagRouter.post('/deleteWorkWithUsBanner', workWithUsController.dropWorkWithUsBanner)
+bromagRouter.get('/getWorkWithUsBannerToUpdate/:bannerId', workWithUsController.getWorkWithUsBannerToUpdate)
+bromagRouter.put('/updateWorkWithUsBanner/:bannerId',upload.ImageUploader.array('bannerPic', 1), workWithUsController.updateWorkWithUsBannerData)
 
 
 // Who we are - Banners
 bromagRouter.post('/addWhoWeAreBanner',upload.ImageUploader.array('bannerPic', 1), whoWeAreController.saveWhoWeAreBanner)
 bromagRouter.get('/whoWeAreBanners', whoWeAreController.viewWhoWeAreBanners)
 bromagRouter.post('/deleteWhoWeAreBanner', whoWeAreController.dropWhoWeAreBanner)
+bromagRouter.get('/getWhoWeAreUsBannerToUpdate/:bannerId', whoWeAreController.getWhoWeAreUsBannerToUpdate)
+bromagRouter.put('/updateWhoWeAreUsBanner/:bannerId',upload.ImageUploader.array('bannerPic', 1), whoWeAreController.updateWhoWeAreUsBannerData)
+
 
 // lookout section  
 bromagRouter.post('/addLookoutVdo',upload.VideoUploader.array('lookoutVideo', 1), workWithUsController.saveLookoutVdo)

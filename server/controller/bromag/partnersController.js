@@ -253,6 +253,90 @@ const dropPartnersBanners = async (req, res) => {
   }
 };
 
+const getPartnerBannerToUpdate = async (req, res) => {
+  try {
+    const bannerId = req.params.bannerId;
+    const BannerData = await PartnersBanner.findOne({
+      _id: bannerId,
+    });
+
+    if (BannerData) {
+      res.json({ success: true, BannerData });
+    } else {
+      res.status(404).json({ success: false, message: "Banner not found" });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const updatePartnerBannerData = async (req, res) => {
+  try {
+    console.log(req.body, "data from body");
+    const { state, city, banner } = req.body;
+
+    const bannerId = req.params.bannerId;
+    const Banner = await PartnersBanner.findOne({ _id: bannerId });
+
+    if (!Banner) {
+      return res.json({
+        success: false,
+        message: "Banner not found",
+      });
+    }
+
+    let imageURL;
+    const file = req.files && req.files[0];
+
+    if (file) {
+      const OldBannerPic = Banner.bannerPic;
+      await helpers.deleteS3File(OldBannerPic);
+      const imagePath = `partnersBanner/bannerPic/${banner}/${file.filename}`;
+
+      await helpers.uploadFile(file, imagePath);
+
+      imageURL = helpers.getS3FileUrl(imagePath);
+      helpers.deleteFile(file.path);
+    }
+
+    const updatedData = {
+      ...(imageURL && { bannerPic: imageURL }),
+      bannerName: banner,
+      bannerPic: imageURL,
+      state,
+      city,
+    };
+
+    console.log(updatedData, "updated data");
+    const updatedPartner = await PartnersBanner.findOneAndUpdate(
+      { _id: bannerId },
+      { $set: updatedData },
+      { new: true }
+    );
+
+    if (!updatedPartner) {
+      return res.json({
+        success: false,
+        message: "Banner not found",
+      });
+    }
+
+    const messageType = imageURL
+      ? "Banner's image updated successfully"
+      : "Banner's data updated successfully";
+
+    res.json({
+      success: true,
+      message: messageType,
+    });
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Internal Server Error",
+    });
+  }
+};
 module.exports = {
   savePartnerData,
   viewPartnerData,
@@ -262,4 +346,6 @@ module.exports = {
   savePartnersBanner,
   viewPartnersBanners,
   dropPartnersBanners,
+  getPartnerBannerToUpdate,
+  updatePartnerBannerData,
 };

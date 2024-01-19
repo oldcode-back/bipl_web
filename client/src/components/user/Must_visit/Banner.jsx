@@ -41,6 +41,30 @@ const Banner = () => {
             MustVisitBanners.map((value, index) => (
               <div key={index} className="relative">
                 <div
+                  className={`absolute bottom-0 w-[1550px] h-[790px] bg-[#00000080] transition-all duration-300`}
+                ></div>
+                <img
+                  key={index}
+                  className="w-full "
+                  alt={`Banner ${index + 1}`}
+                  src={value.bannerPic}
+                />
+              </div>
+            ))
+          ) : (
+            <img
+              style={{ boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.5)" }}
+              className="w-full"
+              alt="Default Banner"
+              src={MustVisit1}
+            />
+          )}
+        </Carousel>
+        {/* <Carousel autoplay>
+          {MustVisitBanners && MustVisitBanners.length > 0 ? (
+            MustVisitBanners.map((value, index) => (
+              <div key={index} className="relative">
+                <div
                   className={`absolute bottom-0 w-full h-[775px] bg-[#00000080] transition-all duration-300`}
                 ></div>
                 <img
@@ -59,7 +83,7 @@ const Banner = () => {
               src={MustVisit1}
             />
           )}
-        </Carousel>
+        </Carousel> */}
 
         {/* <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
           <div className="w-full top-0 left-0 space-y-4">

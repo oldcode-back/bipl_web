@@ -26,7 +26,7 @@ const WhoSection = () => {
               <p className=" w-[769px] mt-16 [font-family:'Montserrat-SemiBold',Helvetica] font-semibold text-[#484848] text-[28px] tracking-[0] leading-[normal]">
                 Meet The Visionary Duo Behind BROMAG –
                 <br />
-                 Mohammed Abrar Goree And Mohammed Aslam! Goree 
+                 Mohammed Abrar Goree And Mohammed Aslam Goree! 
               </p>
               <p className=" w-[784px] mt-4 [font-family:'Montserrat-Regular',Helvetica] font-normal text-[#484848] text-[28px] tracking-[0] leading-[normal]">
                 BROMAG India is driven by the passion and dedication

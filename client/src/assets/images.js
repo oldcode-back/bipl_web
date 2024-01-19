@@ -72,6 +72,7 @@ export { default as WhoWeAreCard4 } from './Whoweare4.png'
 export { default as Abrar } from './Abrar.png'
 export { default as Abrarfather } from './Abrarfather.png'
 export { default as Abrar1 } from './Abrar1.png'
+export { default as Abrar2 } from './Abrar2.png'
 
 
 

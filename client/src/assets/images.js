@@ -110,3 +110,8 @@ export { default as BromagResult } from './bromagResult.png'
 
 //to increase order
 export { default as IncreaseOrder } from './increaseOrder.png'
+
+
+//home demo
+
+export { default as homedemo } from './homedemo.jpg'

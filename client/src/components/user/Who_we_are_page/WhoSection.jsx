@@ -6,6 +6,7 @@ import {
   WhoWeAreCard1,
   Abrar,
   Abrar1,
+  Abrar2,
   Abrarfather,
   WhoWeAreCard3,
   WhoWeAreCard4,
@@ -54,7 +55,7 @@ const WhoSection = () => {
             <img
               className=" w-[277px] h-[282px]  object-cover"
               alt="Image"
-              src={Abrar1}
+              src={Abrar2}
             />
           </div>
           <div className="flex flex-col w-[800px] mt-4">

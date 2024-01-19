@@ -4,7 +4,10 @@ import {
   WhoWeAre3,
   WhoWeAre2,
   WhoWeAreCard1,
-  WhoWeAreCard2,
+  Abrar,
+  Abrar1,
+  Abrar2,
+  Abrarfather,
   WhoWeAreCard3,
   WhoWeAreCard4,
 } from "../../../assets/images";
@@ -24,10 +27,9 @@ const WhoSection = () => {
                 Who We Are ?
               </div>
               <p className=" w-[769px] mt-16 [font-family:'Montserrat-SemiBold',Helvetica] font-semibold text-[#484848] text-[28px] tracking-[0] leading-[normal]">
-                Meet The Visionary
+                Meet The Visionary Duo Behind BROMAG –
                 <br />
-                Duo Behind BROMAG – Goree Mohammed Abrar And Goree Mohammed
-                Aslam!
+                 Mohammed Abrar Goree And Mohammed Aslam Goree! 
               </p>
               <p className=" w-[784px] mt-4 [font-family:'Montserrat-Regular',Helvetica] font-normal text-[#484848] text-[28px] tracking-[0] leading-[normal]">
                 BROMAG India is driven by the passion and dedication
@@ -53,13 +55,13 @@ const WhoSection = () => {
             <img
               className=" w-[277px] h-[282px]  object-cover"
               alt="Image"
-              src={WhoWeAreCard2}
+              src={Abrar2}
             />
           </div>
           <div className="flex flex-col w-[800px] mt-4">
             <div className=" m-8 w-[900px]">
               <p className="w-[784px] top-0 left-0 [font-family:'Montserrat-SemiBold',Helvetica] font-normal text-[#484848] text-[27px] tracking-[0] leading-[normal]">
-                <span className="font-semibold">Goree Mohammed Abrar</span>
+                <span className="font-semibold">Mohammed Abrar Goree </span>
                 <span className="[font-family:'Montserrat-Regular',Helvetica]">
                   , the ingenious mind behind <br /> BROMAG, is fueled by an
                   insatiable love for exceptional <br /> cuisine and a desire to
@@ -80,7 +82,7 @@ const WhoSection = () => {
                   Complementing this vision is{" "}
                 </span>
                 <span className="[font-family:'Montserrat-SemiBold',Helvetica] font-semibold">
-                  Goree Mohammed Aslam,
+                  Mohammed Aslam Goree ,
                 </span>
                 <br />
                 <span className="[font-family:'Montserrat-Regular',Helvetica] font-normal text-[#484848] text-[27px] tracking-[0]">
@@ -99,7 +101,7 @@ const WhoSection = () => {
             <img
               className=" w-[277px] h-[282px]  object-cover"
               alt="Image"
-              src={WhoWeAreCard3}
+              src={Abrarfather}
             />
           </div>
         </div>

@@ -12,13 +12,13 @@ const Business_development = () => {
     <div>
       <Navbar/>
       <BusinessHeader
-        headingStyle="ml-[395px]"
+        headingStyle="ml-[225px]"
         backgroundImage={business1}
-        heading="Business Development"
+        heading="What We do"
       />
       <WhatWeDo />
-      <WhatWeLearnAbout />
-      <Challenges />
+      {/* <WhatWeLearnAbout /> */}
+      {/* <Challenges /> */}
       <Footer />
     </div>
   );

@@ -107,6 +107,7 @@ const getHomeBannerToUpdate = async (req, res) => {
 
 const updateHomeBannerData = async (req, res) => {
   try {
+    console.log(req.body,"data from body");
     const { state, city, restaurant, link } = req.body;
 
     const bannerId = req.params.bannerId;
@@ -144,7 +145,7 @@ const updateHomeBannerData = async (req, res) => {
     };
 
     console.log(updatedData, "updated data");
-    const updatedPartner = await MustVisit.findOneAndUpdate(
+    const updatedPartner = await HomeBanner.findOneAndUpdate(
       { _id: bannerId },
       { $set: updatedData },
       { new: true }
@@ -164,7 +165,6 @@ const updateHomeBannerData = async (req, res) => {
     res.json({
       success: true,
       message: messageType,
-      employment: updatedPartner,
     });
   } catch (error) {
     console.error("Error:", error);

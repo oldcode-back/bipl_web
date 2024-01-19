@@ -54,7 +54,7 @@ const WhoSection = () => {
             <img
               className=" w-[277px] h-[282px]  object-cover"
               alt="Image"
-              src={Abrar1}
+              src={Abrar}
             />
           </div>
           <div className="flex flex-col w-[800px] mt-4">

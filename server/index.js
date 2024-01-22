@@ -24,15 +24,15 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// app.use(cors());
-app.use(
-  cors({
-    origin: [process.env.CLIENT1, process.env.CLIENT2, process.env.CLIENT3],
-    methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
-    credentials: true,
-    allowedHeaders: ["Content-Type", "Access"],
-  })
-);
+app.use(cors());
+// app.use(
+//   cors({
+//     origin: [process.env.CLIENT1, process.env.CLIENT2, process.env.CLIENT3],
+//     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
+//     credentials: true,
+//     allowedHeaders: ["Content-Type", "Access"],
+//   })
+// );
 
 // Routers
 const User = require("./router/user");

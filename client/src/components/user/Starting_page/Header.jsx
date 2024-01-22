@@ -77,8 +77,8 @@ const Header = ({ handleChange }) => {
           <img
             style={{ boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.5)" }}
             className="w-full h-[650px] "
-            // src={RectangleImage}
-            src={homedemo}
+            src={RectangleImage}
+            // src={homedemo}
           />
         )}
       </Carousel>

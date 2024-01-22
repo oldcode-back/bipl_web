@@ -1,16 +1,16 @@
 import React from "react";
 import { Dining, OrderCall, Online, Takeaway } from "../../../assets/images";
-
+import '../../../css/startbanner.css'
 const Banner = () => {
   
   
   return (
     <div
-      className="w-full flex justify-center items-center space-x-5 relative mb-28"
+      className="container-main w-full flex justify-center items-center space-x-5 relative mb-28"
       style={{ marginTop: "-120px" }}
     >
-      <div className="flex justify-center space-x-14">
-        <div className="flex justify-center space-x-8">
+      <div className="container flex justify-center ">
+        <div className="item flex justify-center space-x-8">
           <div className="w-[255px] h-[250px] bg-[#fbfbfb] rounded-[20px] shadow-[0px_9px_21px_#47474740] flex flex-col justify-center ">
             <>
               <img
@@ -25,7 +25,7 @@ const Banner = () => {
           </div>
         </div>
 
-        <div className="flex justify-center space-x-8">
+        <div className="item flex justify-center space-x-8">
           <div className="w-[255px] h-[250px] bg-[#fbfbfb] rounded-[20px] shadow-[0px_9px_21px_#47474740] flex flex-col justify-center items-center">
             <img
               className="w-[255px] h-[230px] mt-1 rounded-md"
@@ -38,7 +38,7 @@ const Banner = () => {
           </div>
         </div>
 
-        <div className="flex justify-center space-x-8">
+        <div className="item flex justify-center space-x-8">
           <div className="w-[255px] h-[250px] bg-[#fbfbfb] rounded-[20px] shadow-[0px_9px_21px_#47474740] flex flex-col justify-center items-center">
             <img
               className="w-[255px] h-[230px] mt-1 rounded-md"
@@ -51,7 +51,7 @@ const Banner = () => {
           </div>
         </div>
 
-        <div className="flex justify-center space-x-8">
+        <div className="item flex justify-center space-x-8">
           <div className="w-[255px] h-[250px] bg-[#fbfbfb] rounded-[20px] shadow-[0px_9px_21px_#47474740] flex flex-col justify-center items-center">
             <img
               className="w-[255px] h-[230px] mt-1 rounded-md"

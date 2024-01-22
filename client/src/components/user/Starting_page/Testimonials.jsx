@@ -27,7 +27,7 @@ const Testimonials = () => {
   return (
     <div className="w-full h-[824px] relative text-center mt-44 mb-20">
       <p className="text-center font-bold text-[#323232] text-5xl leading-normal pt-5 pb-28">
-        Bromag Testimonial
+        BROMAG Testimonial
       </p>
 
       <div className="flex justify-center items-center h-[550px] relative">

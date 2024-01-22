@@ -1,0 +1,51 @@
+
+.child1{
+    position: absolute;
+    width: 300px;
+}
+.child2{
+    position: absolute;
+    width: 350px;
+    height: 410px;
+    left: 400px;
+}
+.child3{
+    position: absolute;
+    width: 300px;
+}
+.child-text{
+    position: absolute;
+}
+.partner-img{
+    width: 350px;
+}
+
+@media (max-width: 768px) {
+    .childbanner{
+        margin-bottom: 400px;
+    }
+    .child1{
+        position: relative;
+        margin-top: -600px;
+        margin-left: 160px;
+    }
+    .child-must{
+        margin-top: -370px;
+        margin-left: 0px;
+    }
+    .child2{
+        position: relative;
+        margin-top: -600px;
+        left: 100px;
+        width: 300px;
+    }
+    .partner-img{
+        width: 300px;
+    }
+    .child-partner{
+      
+    }
+    .child3{
+        position: absolute;
+    }
+}

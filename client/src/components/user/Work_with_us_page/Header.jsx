@@ -38,7 +38,9 @@ const Header = () => {
   }, [state, city, loading]);
   return (
     <div className="relative w-full h-[650px] mb-[75px]">
-      <Carousel autoplay>
+      <Carousel autoplay
+        dots={false}
+      >
           {WorkWithUsBanners && WorkWithUsBanners.length > 0 ? (
             WorkWithUsBanners.map((value, index) => (
               <div key={index} className="relative">

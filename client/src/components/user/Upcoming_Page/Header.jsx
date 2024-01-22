@@ -36,7 +36,9 @@ const Header = () => {
   return (
     <div>
       <div className="relative w-full h-[650px] mb-[75px] bg-gray-50">
-        <Carousel autoplay>
+        <Carousel autoplay
+          dots={false}
+        >
           {UpcomingBanners && UpcomingBanners.length > 0 ? (
             UpcomingBanners.map((value, index) => (
               <div key={index} className="relative">

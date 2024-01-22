@@ -43,8 +43,9 @@ const Header = ({ handleChange }) => {
   };
 
   return (
-    <div className="relative w-full h-[790px] mb-24">
+    <div className="relative w-full h-[650] mb-20">
       <Carousel
+        dots={false}
         autoplay
         afterChange={(currentSlide) => {
           const link = HomeBanners[currentSlide]?.link;
@@ -57,7 +58,7 @@ const Header = ({ handleChange }) => {
           HomeBanners.map((value, index) => (
             <div key={index} className="relative">
               <div
-                className={`absolute mb-2 bottom-0 w-[1550px] h-[790px] bg-[#00000080] transition-all duration-300`}
+                className={`absolute mb-2 bottom-0 w-full h-full bg-[#00000080] transition-all duration-300`}
               ></div>
               <button
                 onClick={() => handleImageClick(value.link)}
@@ -66,7 +67,7 @@ const Header = ({ handleChange }) => {
                 <img
                   alt={`Banner ${index + 1}`}
                   src={value.bannerPic}
-                  className="w-full "
+                  className="w-full h-[650px] "
                   // w-[1550px] h-[790px]
                 />
               </button>
@@ -75,8 +76,7 @@ const Header = ({ handleChange }) => {
         ) : (
           <img
             style={{ boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.5)" }}
-            className="w-[1550px] h-[790px]  object-cover"
-            alt="Default Banner"
+            className="w-full h-[650px] "
             // src={RectangleImage}
             src={homedemo}
           />

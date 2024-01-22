@@ -35,17 +35,17 @@ const Header = () => {
   }, [state, city, loading]);
   return (
     <div>
-      <div className="relative w-full h-[790px] mb-[75px] bg-gray-50">
+      <div className="relative w-full h-[650px] mb-[75px] bg-gray-50">
         <Carousel autoplay>
           {UpcomingBanners && UpcomingBanners.length > 0 ? (
             UpcomingBanners.map((value, index) => (
               <div key={index} className="relative">
                 <div
-                  className={`absolute bottom-0 w-[1550px] h-[790px] bg-[#00000080] transition-all duration-300`}
+                  className={`absolute bottom-0 w-full h-[650px] bg-[#00000080] transition-all duration-300`}
                 ></div>
                 <img
                   key={index}
-                  className="w-full"
+                  className="w-full h-[650px]"
                   alt={`Banner ${index + 1}`}
                   src={value.bannerPic}
                 />
@@ -54,7 +54,7 @@ const Header = () => {
           ) : (
             <img
               style={{ boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.5)" }}
-              className="w-full"
+              className="w-full h-[650px]"
               alt="Default Banner"
               src={Upcoming1}
             />

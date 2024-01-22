@@ -3,10 +3,10 @@ import { shade } from "../../../assets/images";
 
 const BusinessHeader = ({ backgroundImage, heading, headingStyle }) => {
   return (
-    <div className="relative w-full h-[700px]">
+    <div className="relative w-full h-[650px]">
       <img
         style={{ boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.5)" }}
-        className="w-full h-screen object-cover"
+        className="w-full h-[650px] object-cover"
         alt="Rectangle"
         src={backgroundImage}
       />

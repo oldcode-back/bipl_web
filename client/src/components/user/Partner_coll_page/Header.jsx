@@ -36,17 +36,19 @@ const Header = () => {
 
   return (
     <div>
-      <div className="relative w-full h-[775px] mb-[75px] bg-gray-50">
-      <Carousel autoplay>
+      <div className="relative w-full h-[650px] mb-[75px] bg-gray-50">
+      <Carousel autoplay
+        dots={false}
+      >
           {PartnersBanners && PartnersBanners.length > 0 ? (
             PartnersBanners.map((value, index) => (
               <div key={index} className="relative">
                 <div
-                  className={`absolute bottom-0 w-[1550px] h-[790px] bg-[#00000080] transition-all duration-300`}
+                  className={`absolute bottom-0 w-full h-[650px] bg-[#00000080] transition-all duration-300`}
                 ></div>
                 <img
                   key={index}
-                  className="w-full "
+                  className="w-full h-[650px]"
                   alt={`Banner ${index + 1}`}
                   src={value.bannerPic}
                 />
@@ -55,7 +57,7 @@ const Header = () => {
           ) : (
             <img
               style={{ boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.5)" }}
-              className="w-full"
+              className="w-full h-[650px]"
               alt="Default Banner"
               src={Partners1}
             />

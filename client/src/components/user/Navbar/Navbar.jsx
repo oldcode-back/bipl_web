@@ -119,7 +119,7 @@ const Navbar = ({ newImage }) => {
                     className="w-full text-center py-1 bg-transparent appearance-none focus:outline-none px-1"
                   >
                     <option
-                      value={"Select city"}
+                      value={"Select state"}
                       className={`${
                         isEmpty(state) && dummy ? "block" : "hidden"
                       }`}

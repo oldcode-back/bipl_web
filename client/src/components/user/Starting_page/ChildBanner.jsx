@@ -6,18 +6,18 @@ import '../../../css/childbanner.css'
 const ChildBanner = () => {
   const navigate = useNavigate();
   return (
-    <div className="childbanner">
-      <div className="w-full h-[100px] pt-2 mb-28">
-        <p className="text-center font-bold text-[#323232] text-5xl leading-normal">
+    <div className="childbanner ">
+      <div className="w-full h-[100px] pt-2 mb-28 ">
+        <p className="collection-h text-center font-bold text-[#323232]  leading-normal">
           Collections
         </p>
-        <div className="text-center py-4 top-0 left-0 [font-family:'Montserrat-Medium',Helvetica] font-medium text-[#646464] text-[30px] tracking-[0] leading-[normal]">
+        <div className="res-text text-center py-4 top-0 left-0 [font-family:'Montserrat-Medium',Helvetica] font-medium text-[#646464]  tracking-[0] leading-[normal]">
           Our Restaurant Showcase
         </div>
       </div>
       <div className=" w-full h-[700px] relative flex justify-center items-center">
-        <div className=" h-[600px] relative">
-          <img className="w-full h-full object-cover" alt="Map" src={Map} />
+        <div className="child-bottom h-[600px] relative">
+          <img className="map-img  h-full object-cover" alt="Map" src={Map} />
           {/* <Link
             to="/must-visit-here"
             className="absolute w-[300px] h-[360px] top-[5px] left-[-50px] object-cover"
@@ -26,23 +26,23 @@ const ChildBanner = () => {
             onClick={() => {
               navigate("/must-visit-here");
             }}
-            className="child1 h-[360px] top-[5px] left-[-50px] object-cover "
+            className="child1 top-[5px]   "
           >
-            <img className="w-full object-cover" alt="Image" src={coll3} />
-            <div className="child1 child-must rounded-2xl  h-full bottom-[-4px] left-0 rounded-[0px 0px 21px 20px] shadow-[0px 4px 4px #00000040] [background:linear-gradient(180deg,rgba(0,0,0,0)_45.94%,rgb(0,0,0)_100%)]" />
-            <div className="absolute bottom-3 left-3 text-white font-semibold text-[22px] tracking-[0] leading-[normal]">
+            <img className="child1-img w-full object-cover" alt="Image" src={coll3} />
+            <div className="child1 child-must rounded-2xl   bottom-[-4px] left-0 rounded-[0px 0px 21px 20px] shadow-[0px 4px 4px #00000040] [background:linear-gradient(180deg,rgba(0,0,0,0)_45.94%,rgb(0,0,0)_100%)]" />
+            <div className="child-text absolute bottom-3 left-3 text-white font-semibold  tracking-[0] leading-[normal]">
               Must Visit <br /> Restaurants
             </div>
           </div>
           {/* </Link> */}
           <Link
             to="/partner-restaurants"
-            className="child2  top-[185px]  object-cover"
+            className="child2   object-cover"
           >
             {/* <div className="absolute w-[350px] h-[410px] top-[185px] left-[400px] object-cover"> */}
             <img className="partner-img  object-cover" alt="Image" src={coll1} />
-            <div className="child2 child-partner h-full rounded-2xl bottom-[-14px] left-0 rounded-[0px 0px 21px 20px] shadow-[0px 4px 4px #00000040] [background:linear-gradient(180deg,rgba(0,0,0,0)_45.94%,rgb(0,0,0)_100%)]" />
-            <div className="absolute bottom-1 left-3 text-white font-semibold text-[22px] tracking-[0] leading-[normal]">
+            <div className="child2 child-partner  rounded-2xl bottom-[-14px] left-0 rounded-[0px 0px 21px 20px] shadow-[0px 4px 4px #00000040] [background:linear-gradient(180deg,rgba(0,0,0,0)_45.94%,rgb(0,0,0)_100%)]" />
+            <div className="absolute child-text  bottom-0 left-3 text-white font-semibold tracking-[0] leading-[normal]">
               Partner <br /> Restaurants
             </div>
             {/* </div> */}
@@ -50,12 +50,12 @@ const ChildBanner = () => {
 
           <Link
             to="/upcoming-restaurants"
-            className="child3  h-[360px] top-[5px] left-[900px]  object-cover"
+            className="child3  h-[360px] top-[5px]  "
           >
             {/* <div className="absolute w-[300px] h-[360px] top-[5px] left-[900px]  object-cover"> */}
-            <img className="w-full object-cover" alt="Image" src={coll2} />
-            <div className= "child3  rounded-2xl  h-[360px] bottom-[-4px] left-0 rounded-[0px 0px 21px 20px] shadow-[0px 4px 4px #00000040] [background:linear-gradient(180deg,rgba(0,0,0,0)_45.94%,rgb(0,0,0)_100%)]" />
-            <div className="absolute bottom-3 left-3 text-white font-semibold text-[22px] tracking-[0] leading-[normal]">
+            <img className="upcoming-img  object-cover" alt="Image" src={coll2} />
+            <div className= "child3 child-upcoming rounded-2xl   bottom-[-4px] left-0 rounded-[0px 0px 21px 20px] shadow-[0px 4px 4px #00000040] [background:linear-gradient(180deg,rgba(0,0,0,0)_45.94%,rgb(0,0,0)_100%)]" />
+            <div className="absolute child-text bottom-3 left-3 text-white font-semibold  tracking-[0] leading-[normal]">
               Upcoming <br /> Restaurants
             </div>
             {/* </div> */}

@@ -1,46 +1,88 @@
-/* @media (max-width: 768px) { */
-.mobile-container {
-    max-width: 480px;
-    margin: auto;
-    background-color: #555;
-    height: 500px;
-    color: white;
-    border-radius: 10px;
-  }
-  
-  .topnav {
-    overflow: hidden;
-    background-color: #333;
+.nav-ul{
+    float: center; 
+    /* padding-top: -40px; */
+    /* margin: 20px; */
+    margin-top: -165px;
+    /* margin-left: 800px; */
+    padding-bottom: 0px;
+    display: flex;
+  justify-content: right;
+}
+.nav-li{
+   padding: 22px;
+}
+.nav-state{
+   
+}
+.bromag-img{
+    height: 102px;
+    width: 91px;
+}
+.nav-state-1{
+    width: 180px;
+    height: 33px;
+}
+@media (max-width: 1025px) {
+.nav-ul{
+    background-color: black;
+    height:auto;
+    top: 150px;
+    margin: 0px;
+    float: center; 
+    position:fixed;
+    /* padding-top: -40px; */
+    /* margin: 20px; */
+    /* margin-top: -140px; */
+    margin-left: 0px;
+    margin-right: 0px;
+    display:grid;
+    justify-content:left;
+    padding-top: -40px;
+}
+.nav-li{
+    display: inline-block;
     position: relative;
-  }
-  
-  .topnav #myLinks {
-    display: none;
-  }
-  
-  .topnav a {
-    color: white;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    display: block;
-  }
-  
-  .topnav a.icon {
-    background: black;
-    display: block;
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  
-  .topnav a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
-  .active {
-    background-color: #04AA6D;
-    color: white;
-  }
+    top: 0px;
+    padding-bottom: 50%;
+}
+.bromag-img{
+    width: 40px;
+height: 34px;
+flex-shrink: 0;
+/* display: grid;
+  justify-content:left; */
+  position: absolute;
+  right: 0%;
+}
+.nav-state{
+    position: relative;
+    margin-top: 10px;
+    height:20px ;
+    width: 102px;
+    margin-left: 60px;
+}
+.menubar-nav{
+    margin-top: -20px;
+    display: flex;
+    justify-content: center;
+}
+.nav-state-1{
+    /* width: 102.4px;
+    height: 20px;
+    border-radius:15px ; */
+    display: flex;
+    justify-content: center;
+    
+}
+.nav-state-text{
+    /* width: 50px;
+    height: 9px;
+    flex-shrink: 0;
+    color: #333;
+font-size: 6px;
+font-style: normal;
+font-weight: 300;
+line-height: normal; */
+}
 
+}

@@ -6,19 +6,19 @@ const Banner = () => {
   
   return (
     <div
-      className="container-main w-full flex justify-center items-center space-x-5 relative mb-28"
+      className="container-main w-full flex justify-center items-center space-x-5 relative mb-18"
       style={{ marginTop: "-120px" }}
     >
       <div className="container flex justify-center ">
         <div className="item flex justify-center space-x-8">
-          <div className="w-[255px] h-[250px] bg-[#fbfbfb] rounded-[20px] shadow-[0px_9px_21px_#47474740] flex flex-col justify-center ">
+          <div className="item-online  bg-[#fbfbfb] rounded-[20px] shadow-[0px_9px_21px_#47474740] flex flex-col justify-center ">
             <>
               <img
                 className="w-[255px] h-[230px] mt-1 rounded-md"
                 alt="Image"
                 src={Online}
               />
-              <p className="w-[255px] h-[50px] mb-3 text-center [font-family:'Montserrat-Bold',Helvetica] font-bold text-[#323232] text-[20px] tracking-[0] leading-[normal]">
+              <p className="item-name  item-name-online mb-3 text-center [font-family:'Montserrat-Bold',Helvetica] font-bold text-[#323232]  tracking-[0] leading-[normal]">
                 Online order
               </p>
             </>
@@ -26,39 +26,39 @@ const Banner = () => {
         </div>
 
         <div className="item flex justify-center space-x-8">
-          <div className="w-[255px] h-[250px] bg-[#fbfbfb] rounded-[20px] shadow-[0px_9px_21px_#47474740] flex flex-col justify-center items-center">
+          <div className="item-online bg-[#fbfbfb] rounded-[20px] shadow-[0px_9px_21px_#47474740] flex flex-col justify-center items-center">
             <img
               className="w-[255px] h-[230px] mt-1 rounded-md"
               alt="Image"
               src={Dining}
             />
-            <p className="w-[255px] h-[50px] mb-3 text-center [font-family:'Montserrat-Bold',Helvetica] font-bold text-[#323232] text-[20px] tracking-[0] leading-[normal]">
+            <p className="item-name mb-3 text-center [font-family:'Montserrat-Bold',Helvetica] font-bold text-[#323232]  tracking-[0] leading-[normal]">
               Dining
             </p>
           </div>
         </div>
 
         <div className="item flex justify-center space-x-8">
-          <div className="w-[255px] h-[250px] bg-[#fbfbfb] rounded-[20px] shadow-[0px_9px_21px_#47474740] flex flex-col justify-center items-center">
+          <div className="item-online bg-[#fbfbfb] rounded-[20px] shadow-[0px_9px_21px_#47474740] flex flex-col justify-center items-center">
             <img
               className="w-[255px] h-[230px] mt-1 rounded-md"
               alt="Image"
               src={OrderCall}
             />
-            <p className="w-[255px] h-[50px] mb-3 text-center [font-family:'Montserrat-Bold',Helvetica] font-bold text-[#323232] text-[20px] tracking-[0] leading-[normal]">
+            <p className="item-name mb-3 text-center [font-family:'Montserrat-Bold',Helvetica] font-bold text-[#323232]  tracking-[0] leading-[normal]">
               Call for order
             </p>
           </div>
         </div>
 
         <div className="item flex justify-center space-x-8">
-          <div className="w-[255px] h-[250px] bg-[#fbfbfb] rounded-[20px] shadow-[0px_9px_21px_#47474740] flex flex-col justify-center items-center">
+          <div className="item-online bg-[#fbfbfb] rounded-[20px] shadow-[0px_9px_21px_#47474740] flex flex-col justify-center items-center">
             <img
               className="w-[255px] h-[230px] mt-1 rounded-md"
               alt="Image"
               src={Takeaway}
             />
-            <p className="w-[255px] h-[50px] mb-3 text-center [font-family:'Montserrat-Bold',Helvetica] font-bold text-[#323232] text-[20px] tracking-[0] leading-[normal]">
+            <p className="item-name mb-3 text-center [font-family:'Montserrat-Bold',Helvetica] font-bold text-[#323232]  tracking-[0] leading-[normal]">
               Take away
             </p>
           </div>

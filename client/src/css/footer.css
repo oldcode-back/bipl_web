@@ -1,0 +1,316 @@
+.footer-container{
+    height: 450px;
+}
+
+.footer-bromag {
+   width: 969px; 
+}
+.footer-social{
+    width: 208px;
+    height: 23px;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-left: 40px;
+}
+.icon-insta{
+    width: 32px;
+    height: 32px;
+}
+.icon-facebook{
+    width: 40px;
+    height: 40px;
+}
+.icon-whatsapp{
+    width: 32px;
+    height: 32px;
+}
+.icon-youtube{
+    width: 40px;
+    height: 40px;
+}
+.icon-linkedin{
+    width: 32px;
+    height: 32px;
+}
+.footer-icons{
+    width: 300px;
+    margin-left: 20px;
+}
+.footer-contacth{
+    width: 234px;
+    font-size: 30px;
+    margin-top: 40px;
+}
+.footer-phone-icon, .footer-mail-icon, .footer-location-icon{
+    width: 22px;
+    height: 24px;
+}
+
+@media (min-width:350px) and (max-width:768px) {
+    .footer-container{
+        /* width: 360px; */
+        height: 195px;
+        margin-top: -550px;
+        width: 100%;
+        text-align: center;
+        /* text-align: center; */
+        /* max-width: 100%; */
+        /* object-position: center; */
+        
+        
+    }
+    
+    .footer-bromag img{
+        /* width: 303px;  */
+        height: 63px;
+        margin-left: 29px;
+        /* margin-right: 49px; */
+        /* margin-right: 29px; */
+        margin-top: -20px;
+        max-width: 100%;
+        /* object-fit:contain; */
+        
+     }
+     .footer-social{
+        /* position: relative; */
+        width: 55px;
+        height: 11px;
+        color: #7B7B7B;
+        font-size: 9px;
+        margin-left: 243px;
+        margin-top: 10px;
+    }
+    .icon-insta{
+        width: 7.2px;
+        height: 7.2px;
+    }
+    .icon-facebook{
+        width: 21px;
+        height: 12px;
+    }
+    .icon-whatsapp{
+        width: 8.8px;
+        height: 8.8px;
+    }
+    .icon-youtube{
+        width: 12px;
+        height: 12px;
+    }
+    .icon-linkedin{
+        width: 7.5px;
+        height: 7.5px;
+    }
+    .footer-icons{
+        width: 100px;
+        margin-left: 238px;
+        margin-top: -40px;
+        
+    }
+    .footer-contacth{
+        width: 62px;
+        height: 11px;
+        font-size: 8px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        /* padding-bottom: 91px; */
+        padding-top: 20px;
+        padding-bottom: 10px;
+    }
+    .mail-content, .address-content{
+        margin-top: -35px;
+        margin-left: -5px;
+        
+    }
+    .contact-content{
+        margin-top: -30px;
+        margin-left: -5px;
+
+    }
+    .footer-phone-icon{
+        width: 6px;
+        height: 6px;
+        margin-right: -15px;
+    }
+    .footer-phone-num{
+        width: 67px;
+        height: 14px;
+        font-size: 7px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .footer-mail-icon{
+        width: 7px;
+        height: 5px;
+        margin-right: -15px;
+    }
+    .footer-mail-id{
+        width: 89px;
+        height: 14px;
+        font-size: 7px;
+    }
+    .footer-mail-location{
+        width: 5px;
+        height: 7px;
+        font-size: 7px;
+    }
+    .footer-location-icon{
+        width: 5px;
+        height: 7px;
+        font-size: 7px;
+        margin-right: -35px;
+    }
+    .footer-address{
+        width: 118px;
+        height: 14px;
+        font-size: 7px;
+    }
+    .footer-contactus{
+        position: absolute;
+        margin-left: 51px;
+        margin-bottom: 4px;
+        /* max-width: 100%; */
+    }
+    
+}
+@media(max-width:349px){
+    .footer-container{
+        /* width: 360px; */
+        height: 195px;
+        margin-top: -550px;
+        /* text-align: center; */
+        max-width: 100%;
+        /* object-position: center; */
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .footer-bromag img{
+        width: 150px; 
+        height: 63px;
+        position: relative;
+        left: 20px;
+        /* margin-right: 49px; */
+        /* margin-right: 29px; */
+        margin-top: -20px;
+        /* max-width: 100%; */
+        /* object-fit:contain; */  
+     }
+     .footer-social{
+        position: relative;
+        left: 200px;
+        width: 55px;
+        height: 11px;
+        color: #7B7B7B;
+        font-size: 9px;
+        text-align: center;
+        margin-left: 70px;
+        margin-top: 70px;
+        
+    }
+    .icon-insta{
+        width: 7.2px;
+        height: 7.2px;
+    }
+    .icon-facebook{
+        width: 21px;
+        height: 12px;
+    }
+    .icon-whatsapp{
+        width: 8.8px;
+        height: 8.8px;
+    }
+    .icon-youtube{
+        width: 12px;
+        height: 12px;
+    }
+    .icon-linkedin{
+        width: 7.5px;
+        height: 7.5px;
+    }
+    .footer-icons{
+        position: relative;
+        justify-content:baseline;
+        width: 100px;
+        margin-left: 50px;
+        margin-top: -40px; 
+
+    }
+    .footer-contacth{
+        width: 62px;
+        height: 11px;
+        font-size: 8px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        /* padding-bottom: 91px; */
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-left: 20px;
+        display: flex;
+  align-items: center;
+    }
+    .footer-contacth-line{
+        margin-left: 20px;
+    }
+    .mail-content, .address-content{
+        margin-top: -40px;
+        margin-left: 20px;  
+    }
+    .contact-content{
+        margin-top: -30px;
+        margin-left: 20px;
+    }
+    .footer-phone-icon{
+        width: 6px;
+        height: 6px;
+        margin-right: -15px;
+    }
+    .footer-phone-num{
+        width: 67px;
+        height: 14px;
+        font-size: 7px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .footer-mail-icon{
+        width: 7px;
+        height: 5px;
+        margin-right: -15px;
+    }
+    .footer-mail-id{
+        width: 89px;
+        height: 14px;
+        font-size: 7px;
+    }
+    .footer-mail-location{
+        width: 5px;
+        height: 7px;
+        font-size: 7px;
+    }
+    .footer-location-icon{
+        width: 5px;
+        height: 7px;
+        font-size: 7px;
+        margin-right: -35px;
+    }
+    .footer-address{
+        width: 118px;
+        height: 14px;
+        font-size: 7px;
+    }
+    .footer-contactus{
+        position: absolute;
+        margin-left: 51px;
+        margin-bottom: 4px;
+        /* max-width: 100%; */
+        
+    }
+    
+    
+    
+}

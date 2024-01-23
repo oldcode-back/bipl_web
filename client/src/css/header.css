@@ -1,0 +1,12 @@
+.banner-container , .banner-img{
+    height: 650px;
+}
+
+@media (max-width: 768px) {
+    .banner-container{
+        height: 229px;
+    }
+    .banner-item, .banner-img{
+        height: 229px;
+    }
+}

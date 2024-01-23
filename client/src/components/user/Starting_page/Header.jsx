@@ -5,6 +5,7 @@ import { useStateAndCity } from "../../../utils/StateAndCityContext";
 import { BackendAPI } from "../../../config/backendPoint";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import '../../../css/header.css'
 
 const Header = ({ handleChange }) => {
   const [HomeBanners, setHomeBanners] = useState([]);
@@ -43,7 +44,7 @@ const Header = ({ handleChange }) => {
   };
 
   return (
-    <div className="relative w-full h-[650] mb-20">
+    <div className="banner-container relative w-full h-[650] mb-20">
       <Carousel
         dots={false}
         autoplay
@@ -58,7 +59,7 @@ const Header = ({ handleChange }) => {
           HomeBanners.map((value, index) => (
             <div key={index} className="relative">
               <div
-                className={`absolute mb-2 bottom-0 w-full h-full bg-[#00000080] transition-all duration-300`}
+                className={`banner-item absolute mb-2 bottom-0 w-full bg-[#00000080] transition-all duration-300`}
               ></div>
               <button
                 onClick={() => handleImageClick(value.link)}
@@ -67,7 +68,7 @@ const Header = ({ handleChange }) => {
                 <img
                   alt={`Banner ${index + 1}`}
                   src={value.bannerPic}
-                  className="w-full h-[650px] "
+                  className="banner-img w-full "
                   // w-[1550px] h-[790px]
                 />
               </button>
@@ -76,7 +77,7 @@ const Header = ({ handleChange }) => {
         ) : (
           <img
             style={{ boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.5)" }}
-            className="w-full h-[650px] "
+            className="banner-img w-full  "
             src={RectangleImage}
             // src={homedemo}
           />
